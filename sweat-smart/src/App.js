@@ -4,8 +4,8 @@ import "./App.css";
 import OpenAI from "openai";
 
 const openai = new OpenAI({
-  apiKey: "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",
-  dangerouslyAllowBrowser: true,
+  apiKey: '',
+  dangerouslyAllowBrowser: true
 });
 
 /// no line breaks
