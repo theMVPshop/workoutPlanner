@@ -1,11 +1,15 @@
-import logo from "./logo.svg";
-import "./App.css";
+import { useEffect } from "react";
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 import OpenAI from "openai";
 
+import HomePage from "./components/HomePage/HomePage";
+import "./App.css";
+
 const openai = new OpenAI({
-  apiKey: '',
-  dangerouslyAllowBrowser: true
+  apiKey: "",
+  dangerouslyAllowBrowser: true,
 });
 
 /// no line breaks
@@ -33,9 +37,18 @@ const main = async () => {
 main();
 
 function App() {
+  // use useEffect to apply AOS animation
+  useEffect(() => {
+    AOS.init({
+      duration: 1000,
+      offset: 100,
+    });
+    AOS.refresh();
+  }, []);
+
   return (
-    <div className="section__padding">
-      <h2>SweatSmart AI</h2>
+    <div>
+      <HomePage />
     </div>
   );
 }
