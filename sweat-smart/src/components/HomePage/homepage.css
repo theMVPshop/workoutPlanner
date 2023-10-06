@@ -1,4 +1,109 @@
-.heading__feature_logo {
+.heading__logo {
+  flex: 1;
+  display: flex;
+  /* text-align: center; */
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.heading__logo img {
+  height: 200px;
+}
+.slogan {
+  background: var(--second-color);
+  border-radius: 1rem;
   text-align: center;
-  border: 1px solid red;
+  padding: 2rem 5rem;
+  margin-top: 3rem;
+}
+.heading__logo h1 {
+  font-size: 50px;
+  line-height: 75px;
+  letter-spacing: 3px;
+  padding: 8px;
+}
+
+.heading__content {
+  display: flex;
+  flex: 1;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding-top: 4rem;
+}
+
+.heading__content-one {
+  display: flex;
+  flex-direction: row;
+}
+.heading__content-one_img {
+  flex: 1;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  margin-right: 2rem;
+}
+.heading__content-one_img img {
+  filter: drop-shadow(0.35rem 0.35rem 0.4rem rgba(0, 0, 0, 0.5));
+}
+/* .heading__content-text {
+  flex: 1;
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-start;
+  flex-direction: column;
+  padding: 15rem;
+} */
+.heading__content_text {
+  
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding: 2rem; 
+}
+p {
+  font-size: 1.5em;
+  padding-bottom: 1rem;
+}
+
+.heading__content-two {
+  display: flex;
+  flex-direction: row;
+}
+.heading__content-two {
+  flex: 1;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  margin-right: 2rem;
+}
+.heading__content-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--color-bg);
+}
+a {
+  position: relative;
+  background: var(--lightgreen);
+  border-radius: 25px;
+  text-decoration: none;
+  padding: 10px 30px;
+  transition: 0.5s;
+  letter-spacing: 0.1em;
+}
+span {
+  color: black;
+  font-size: 1.5em;
+  font-weight: bolder;
+}
+a:hover {
+  letter-spacing: 0.25em;
+  background-color: var(--color-bg);
+  box-shadow: 0 0 30px var(--second-color);
+}
+span:hover {
+  color: white;
 }
