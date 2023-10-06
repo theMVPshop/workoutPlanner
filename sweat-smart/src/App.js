@@ -1,14 +1,20 @@
+
 import logo from "./logo.svg";
 import "./App.css";
+import Card from './components/Card'
+
+
+
+
 
 import OpenAI from "openai";
 
 const openai = new OpenAI({
-  apiKey: '',
+  apiKey: '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',
   dangerouslyAllowBrowser: true
 });
 
-/// no line breaks
+//  no line breaks
 
 const main = async () => {
   const chatCompletion = await openai.chat.completions.create({
@@ -34,9 +40,16 @@ main();
 
 function App() {
   return (
+
+    
     <div className="section__padding">
       <h2>SweatSmart AI</h2>
+      <Card />
     </div>
+
+    
+
+    
   );
 }
 
