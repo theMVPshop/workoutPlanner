@@ -1,28 +1,31 @@
+.header {
+  overflow: hidden;
+}
 .heading__logo {
   flex: 1;
   display: flex;
-  /* text-align: center; */
   flex-direction: column;
   align-items: center;
   justify-content: center;
 }
 .heading__logo img {
-  height: 200px;
+  filter: drop-shadow(0.35rem 0.35rem 0.4rem rgba(0, 0, 0, 0.5));
 }
 .slogan {
-  background: var(--second-color);
-  border-radius: 1rem;
   text-align: center;
   padding: 2rem 5rem;
-  margin-top: 3rem;
+  margin: 2rem 0;
 }
 .heading__logo h1 {
   font-size: 50px;
-  line-height: 75px;
-  letter-spacing: 3px;
+  line-height: 50px;
+  letter-spacing: 0.3rem;
   padding: 8px;
 }
-
+.heading__logo span {
+  font-size: 30px;
+  letter-spacing: 3px;
+}
 .heading__content {
   display: flex;
   flex: 1;
@@ -30,6 +33,7 @@
   align-items: center;
   flex-direction: column;
   padding-top: 4rem;
+  margin: 0 5rem;
 }
 
 .heading__content-one {
@@ -46,44 +50,67 @@
 .heading__content-one_img img {
   filter: drop-shadow(0.35rem 0.35rem 0.4rem rgba(0, 0, 0, 0.5));
 }
-/* .heading__content-text {
-  flex: 1;
-  display: flex;
-  justify-content: flex-end;
-  align-items: flex-start;
-  flex-direction: column;
-  padding: 15rem;
-} */
+
 .heading__content_text {
-  
   flex: 1;
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  padding: 2rem; 
+
+  padding: 2rem 4rem;
+  background: var(--lightgreen);
+  background: linear-gradient(
+    90deg,
+    rgba(178, 255, 255, 0),
+    rgba(178, 255, 255, 0.1)
+  );
+  border-radius: 0 50px 50px 0;
+  box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
 }
-p {
+.heading__content_text:first-child {
+  background: var(--lightgreen);
+  background: linear-gradient(
+    to left,
+    rgba(255, 61, 61, 0),
+    rgba(255, 61, 61, 0.1)
+  );
+  border-radius: 50px 0 0 50px;
+  box-shadow: rgba(0, 0, 0, 0.15) -8px 5px 5px -5px;
+}
+.heading__content_text p {
   font-size: 1.5em;
   padding-bottom: 1rem;
+  line-height: 1.5;
 }
 
-.heading__content-two {
-  display: flex;
-  flex-direction: row;
-}
 .heading__content-two {
   flex: 1;
   display: flex;
   justify-content: flex-start;
   align-items: center;
-  margin-right: 2rem;
+  margin-top: 2rem;
 }
+.heading__content-two p {
+  padding-bottom: 0;
+}
+
+.heading__content-two_img {
+  flex: 1;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+.heading__content-two_img img {
+  filter: drop-shadow(0.35rem 0.35rem 0.4rem rgba(0, 0, 0, 0.5));
+}
+
 .heading__content-button {
   display: flex;
   justify-content: center;
   align-items: center;
   background-color: var(--color-bg);
+  margin-top: 5rem;
 }
 a {
   position: relative;
@@ -106,4 +133,96 @@ a:hover {
 }
 span:hover {
   color: white;
+}
+
+@media screen and (max-width: 900px) {
+  .heading__logo img {
+    width: 70%;
+  }
+  .slogan {
+    padding: 0;
+  }
+  .heading__logo h1 {
+    font-size: 35px;
+  }
+  .heading__logo span {
+    display: block;
+    font-size: 1.3rem;
+  }
+  .heading__content-one_img {
+    margin: 0;
+  }
+  .heading__content {
+    margin: 0;
+  }
+}
+@media screen and (max-width: 850px) {
+  .heading__logo img {
+    width: 60%;
+  }
+  .slogan {
+    padding: 0;
+  }
+  .heading__logo h1 {
+    font-size: 30px;
+    line-height: 1.2;
+    letter-spacing: 0.2rem;
+    padding: 0;
+  }
+  .heading__logo span {
+    display: block;
+    font-size: 1.1rem;
+    letter-spacing: 3px;
+    padding-top: 0.5rem;
+  }
+
+  p {
+    font-size: 14px;
+    padding-bottom: 1rem;
+  }
+  .heading__content-one {
+    display: flex;
+    flex-direction: column;
+  }
+  .heading__content-two {
+    display: flex;
+    flex-direction: column-reverse;
+  }
+  .heading__content_text {
+    min-height: auto;
+  }
+}
+
+@media screen and (max-width: 550px) {
+  .heading__logo img {
+    width: 50%;
+  }
+  .slogan {
+    padding: 0;
+  }
+  .heading__logo h1 {
+    font-size: 25px;
+  }
+  .heading__logo span {
+    font-size: 1rem;
+  }
+
+  .heading__content-one_img img,
+  .heading__content-two_img img {
+    width: 350px;
+  }
+
+  .heading__content_text p {
+    font-size: 12px;
+  }
+  .heading__content-button {
+    margin-top: 4rem;
+  }
+  a {
+    border-radius: 50px;
+    padding: 10px 20px;
+  }
+  span {
+    font-size: 1em;
+  }
 }
