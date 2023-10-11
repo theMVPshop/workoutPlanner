@@ -1,5 +1,6 @@
 import React from "react";
 
+
 import { images } from "../../constants";
 import "./homepage.css";
 
@@ -48,6 +49,7 @@ const HomePage = () => {
           <a>
             <span>Get Started</span>
           </a>
+
         </div>
       </div>
     </div>

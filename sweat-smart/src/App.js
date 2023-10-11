@@ -1,6 +1,8 @@
+
 import { useEffect } from "react";
 import AOS from "aos";
 import "aos/dist/aos.css";
+
 
 import OpenAI from "openai";
 
@@ -12,7 +14,7 @@ const openai = new OpenAI({
   dangerouslyAllowBrowser: true,
 });
 
-/// no line breaks
+//  no line breaks
 
 const main = async () => {
   const chatCompletion = await openai.chat.completions.create({
@@ -49,7 +51,15 @@ function App() {
   return (
     <div>
       <HomePage />
+
+      {/* <Card /> */}
+     
+
     </div>
+
+    
+
+    
   );
 }
 
