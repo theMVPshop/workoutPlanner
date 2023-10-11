@@ -36,7 +36,7 @@ const HomePage = () => {
         <div className="heading__content-two">
           <div className="heading__content_text" data-aos="fade-left">
             <p data-aos="fade-left" data-aos-delay="150">
-              Let's Sweatsmart schedules workouts tailored to your needs, making
+              Let's Sweatsmart schedule workouts tailored to your needs, making
               it easier than ever to maintain your fitness, even with a busy
               lifestyle.
             </p>
