@@ -3,6 +3,8 @@
   padding: 0;
   margin: 0;
   scroll-behavior: smooth;
+  font-family: var(--font-family);
+  color: var(--txt-color);
 }
 body {
   background: var(--color-bg);
@@ -16,23 +18,16 @@ body {
   margin: 4rem 6rem;
 }
 
-h2 {
-  text-align: center;
-  font-family: var(--font-family);
-  border: solid 1px red;
-}
 
-.resultsCard {
-  background-color: #ffe992;
-  /* display: flex; */
-  border: 2px solid #15F49B;
-  border-radius: 10px;
-  box-shadow: 0 10px 15px 0.5px rgb(0 0 0 / 40%);
-  transition: 0.3s ease;
+
+.gradient-text {
+  background-image: linear-gradient(45deg, #ff983f, #ff3d3d);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 
 }
 
-@media screen and (max-width: 700px) {
+@media screen and (max-width: 850px) {
   .section__padding {
     padding: 4rem;
   }

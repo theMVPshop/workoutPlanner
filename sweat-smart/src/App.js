@@ -2,11 +2,6 @@
 import { useEffect } from "react";
 import AOS from "aos";
 import "aos/dist/aos.css";
-import Card from './components/ResultsPage/Card'
-import WorkoutCard from "./components/ResultsPage/workoutCard";
-
-
-
 
 
 import OpenAI from "openai";
@@ -56,8 +51,10 @@ function App() {
   return (
     <div>
       <HomePage />
+
       {/* <Card /> */}
-      <WorkoutCard />
+     
+
     </div>
 
     
