@@ -5,6 +5,7 @@ import "aos/dist/aos.css";
 import OpenAI from "openai";
 
 import HomePage from "./components/HomePage/HomePage";
+import Form from "./components/FormPage/Form";
 import "./App.css";
 
 const openai = new OpenAI({
@@ -49,6 +50,8 @@ function App() {
   return (
     <div>
       <HomePage />
+      <Form />
+
     </div>
   );
 }

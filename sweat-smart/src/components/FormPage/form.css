@@ -1,0 +1,38 @@
+.maindiv {
+      padding: 4rem 6rem;
+      font-size: 1.9em;
+}
+
+.signup {
+    padding: 4rem
+}
+
+.formmain {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+select, option, button, input {
+    color: black;
+    font-size: .8em;
+
+}
+.daylabel {
+    display: flex;
+    font-size: .6em;
+    padding: .5em;
+    padding-left: 40%;
+}
+
+input[type=checkbox] {
+    margin-right: 10px;
+}
+
+/* .generateplan {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--color-bg);
+} */
