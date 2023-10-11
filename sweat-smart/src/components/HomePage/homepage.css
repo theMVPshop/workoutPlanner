@@ -111,6 +111,7 @@
   align-items: center;
   background-color: var(--color-bg);
   margin-top: 5rem;
+  cursor: pointer;
 }
 a {
   position: relative;
