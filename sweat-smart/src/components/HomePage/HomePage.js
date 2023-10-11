@@ -1,10 +1,15 @@
+
 import React from "react";
+
 
 
 import { images } from "../../constants";
 import "./homepage.css";
 
+
 const HomePage = () => {
+
+
   return (
     <div className="section__padding header" data-aos="fade-down">
       <div className="heading__logo">

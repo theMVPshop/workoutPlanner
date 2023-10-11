@@ -3,6 +3,7 @@ import AOS from "aos";
 import "aos/dist/aos.css";
 import OpenAI from "openai";
 import HomePage from "./components/HomePage/HomePage";
+import Form from "./components/FormPage/Form";
 import "./App.css";
 import Output from "./components/ResultsPage/Output";
 
@@ -89,6 +90,10 @@ function App() {
   return (
     <div>
       <HomePage />
+
+      <Form />
+
+
       <Output result={planResult} />
 
       {/* <Card /> */}
