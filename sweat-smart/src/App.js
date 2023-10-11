@@ -1,7 +1,9 @@
 
-import logo from "./logo.svg";
-import "./App.css";
-import Card from './components/Card'
+import { useEffect } from "react";
+import AOS from "aos";
+import "aos/dist/aos.css";
+import Card from './components/ResultsPage/Card'
+import WorkoutCard from "./components/ResultsPage/workoutCard";
 
 
 
@@ -9,9 +11,12 @@ import Card from './components/Card'
 
 import OpenAI from "openai";
 
+import HomePage from "./components/HomePage/HomePage";
+import "./App.css";
+
 const openai = new OpenAI({
-  apiKey: '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',
-  dangerouslyAllowBrowser: true
+  apiKey: "",
+  dangerouslyAllowBrowser: true,
 });
 
 //  no line breaks
@@ -39,12 +44,20 @@ const main = async () => {
 main();
 
 function App() {
-  return (
+  // use useEffect to apply AOS animation
+  useEffect(() => {
+    AOS.init({
+      duration: 1000,
+      offset: 100,
+    });
+    AOS.refresh();
+  }, []);
 
-    
-    <div className="section__padding">
-      <h2>SweatSmart AI</h2>
-      <Card />
+  return (
+    <div>
+      <HomePage />
+      {/* <Card /> */}
+      <WorkoutCard />
     </div>
 
     
