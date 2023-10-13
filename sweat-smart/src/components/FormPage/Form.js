@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import "./form.css";
 
-function Form({ onGeneratePlan }) {
+function Form({ onGeneratePlan, pageRef }) {
   const [name, setName] = useState("");
   const [gender, setGender] = useState("Male");
   const [daysOfWeek, setDaysOfWeek] = useState([]);
@@ -30,7 +30,7 @@ function Form({ onGeneratePlan }) {
   };
 
   return (
-    <div className="maindiv">
+    <div ref={pageRef} className="maindiv">
       <h2 className="signup">Sign Up!</h2>
       <form className="formmain">
         <label>

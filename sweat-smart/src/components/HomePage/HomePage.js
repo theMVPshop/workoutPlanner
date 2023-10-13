@@ -7,7 +7,7 @@ import { images } from "../../constants";
 import "./homepage.css";
 
 
-const HomePage = () => {
+const HomePage = ({ handleScroll }) => {
 
 
   return (
@@ -52,7 +52,7 @@ const HomePage = () => {
         </div>
         <div className="heading__content-button">
           <a>
-            <span>Get Started</span>
+            <span onClick={handleScroll}>Get Started</span>
           </a>
 
         </div>
