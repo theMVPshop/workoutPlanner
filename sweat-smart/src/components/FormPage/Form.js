@@ -58,54 +58,102 @@ function Form({ onGeneratePlan, pageRef }) {
         <label>
           Days of the Week for Exercise
           <br />
-          <label className="daylabel">
-            Sunday
-            <input type="checkbox" className="check" />
-          </label>
-          <label className="daylabel">
-            Monday
-            <input type="checkbox" />
-          </label>
-          <label className="daylabel">
-            Tuesday
-            <input type="checkbox" />
-          </label>
-          <label className="daylabel">
-            Wednesday
-            <input type="checkbox" />
-          </label>
-          <label className="daylabel">
-            Thursday
-            <input type="checkbox" />
-          </label>
-          <label className="daylabel">
-            Friday
-            <input type="checkbox" />
-          </label>
-          <label className="daylabel">
-            Saturday
-            <input type="checkbox" />
-          </label>
-          {/* <select multiple value={daysOfWeek} onChange={handleDaysOfWeekChange}>
-            <option value="Monday">Monday</option>
-            <option value="Tuesday">Tuesday</option>
-            <option value="Wednesday">Wednesday</option>
-            <option value="Thursday">Thursday</option>
-            <option value="Friday">Friday</option>
-            <option value="Saturday">Saturday</option>
-            <option value="Sunday">Sunday</option>
-          </select> */}
+          <div className="suntues">
+            <label className="daylabel">
+              Sunday
+              <input type="checkbox" className="check" />
+            </label>
+            <label className="daylabel">
+              Monday
+              <input type="checkbox" />
+            </label>
+            <label className="daylabel">
+              Tuesday
+              <input type="checkbox" />
+            </label>
+          </div>
+          <div className="wedsat">
+            <label className="daylabel">
+              Wednesday
+              <input type="checkbox" />
+            </label>
+            <label className="daylabel">
+              Thursday
+              <input type="checkbox" />
+            </label>
+            <label className="daylabel">
+              Friday
+              <input type="checkbox" />
+            </label>
+            <label className="daylabel">
+              Saturday
+              <input type="checkbox" />
+            </label>
+          </div>
         </label>
         <br />
 
         <label>
-          Part of the Body to Work On
+          Workouts
           <br />
-          <input
-            type="text"
-            value={bodyPart}
-            onChange={(e) => setBodyPart(e.target.value)}
-          />
+          <div className="suntues">
+            <label className="daylabel">
+              Yoga
+              <input type="checkbox" className="check" />
+            </label>
+            <label className="daylabel">
+              HITT
+              <input type="checkbox" />
+            </label>
+          </div>
+          <div className="wedsat">
+            <label className="daylabel">
+              Cardio
+              <input type="checkbox" />
+            </label>
+            <label className="daylabel">
+              Weight Loss
+              <input type="checkbox" />
+            </label>
+            <label className="daylabel">
+              Strength Training
+              <input type="checkbox" />
+            </label>
+          </div>
+        </label>
+        <br />
+
+        <label>
+          Muscle Groups
+          <br />
+          <div className="suntues">
+            <label className="daylabel">
+              Chest
+              <input type="checkbox" className="check" />
+            </label>
+            <label className="daylabel">
+              Back
+              <input type="checkbox" />
+            </label>
+            <label className="daylabel">
+              Arms
+              <input type="checkbox" />
+            </label>
+          </div>
+          <div className="wedsat">
+            <label className="daylabel">
+              Shoulders
+              <input type="checkbox" />
+            </label>
+            <label className="daylabel">
+              Legs
+              <input type="checkbox" />
+            </label>
+            <label className="daylabel">
+              Calves
+              <input type="checkbox" />
+            </label>
+          </div>
         </label>
         <br />
 
