@@ -6,6 +6,7 @@ import HomePage from "./components/HomePage/HomePage";
 import Form from "./components/FormPage/Form";
 import "./App.css";
 import Output from "./components/ResultsPage/Output";
+import PracticeCard from "./components/ResultsPage/PracticeCard";
 
 function App() {
   // use useEffect to apply AOS animation
@@ -32,6 +33,7 @@ function App() {
       <Form pageRef={pageRef} />
 
       <Output result={planResult} />
+      <PracticeCard />
 
       {/* <Card /> */}
     </div>
