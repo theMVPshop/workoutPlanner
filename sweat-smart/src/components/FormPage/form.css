@@ -5,6 +5,8 @@
 
 .signup {
   padding: 4rem;
+  text-align: center;
+  font-size: 2.5em;
 }
 
 .formmain {
@@ -29,7 +31,19 @@ input {
 }
 
 input[type="checkbox"] {
-  margin-right: 10px;
+  margin-left: 10px;
+}
+
+.suntues {
+    display: flex;
+    align-items: center;
+    padding-right: 80%
+}
+
+.wedsat {
+    display: flex;
+    align-items: center;
+    padding-right: 100%
 }
 
 /* .generateplan {
