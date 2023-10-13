@@ -1,0 +1,122 @@
+const results = [
+    
+
+  {
+    "name": "Manny",
+    "routine": "Strength Training for Chest, Arms, and Shoulders",
+    "summary": "This strength training routine is designed to target your chest, arms, and shoulders. It includes exercises that will help you build muscle and strength in these areas. The routine is suitable for beginners and can be performed at the gym. You will be working out on Monday, Wednesday, Friday, and Sunday for a total of four days per week. Each workout session will last for two hours, from 10:00 PM to 12:00 AM.",
+    "goal": "The goal of this routine is to increase muscle mass and strength in your chest, arms, and shoulders.",
+    "additionalTips": [
+      "Warm up before every workout session to prevent injuries and prepare your muscles for exercise.",
+      "Focus on maintaining proper form throughout each exercise to maximize the effectiveness and avoid injury.",
+      "Gradually increase the weight or resistance as you get stronger to continue challenging your muscles."
+    ],
+    "daysPerWeek": 4,
+    "totalTime": 8,
+    "exercises": [
+      {
+        "Monday": [
+          {
+            "muscleGroup": "Chest",
+            "totalTime": 2,
+            "exercise": "Push Ups",
+            "sets": 3,
+            "reps": 10
+          },
+          {
+            "muscleGroup": "Chest",
+            "totalTime": 2,
+            "exercise": "Bench Press",
+            "sets": 3,
+            "reps": 10
+          },
+          {
+            "muscleGroup": "Chest",
+            "totalTime": 2,
+            "exercise": "Dumbbell Flyes",
+            "sets": 3,
+            "reps": 10
+          }
+        ]
+      },
+  {
+        "Wednesday": [
+          {
+            "muscleGroup": "Arms",
+            "totalTime": 2,
+            "exercise": "Bicep Curls",
+            "sets": 3,
+            "reps": 10
+          },
+          {
+            "muscleGroup": "Arms",
+            "totalTime": 2,
+            "exercise": "Tricep Dips",
+            "sets": 3,
+            "reps": 10
+          },
+          {
+            "muscleGroup": "Arms",
+            "totalTime": 2,
+            "exercise": "Hammer Curls",
+            "sets": 3,
+            "reps": 10
+          }
+        ]
+      },
+      {
+        "Friday": [
+          {
+            "muscleGroup": "Shoulders",
+            "totalTime": 2,
+            "exercise": "Military Press",
+            "sets": 3,
+            "reps": 10
+          },
+          {
+            "muscleGroup": "Shoulders",
+            "totalTime": 2,
+            "exercise": "Lateral Raises",
+            "sets": 3,
+            "reps": 10
+          },
+          {
+            "muscleGroup": "Shoulders",
+            "totalTime": 2,
+            "exercise": "Front Raises",
+            "sets": 3,
+            "reps": 10
+          }
+        ]
+      },
+      {
+        "Sunday": [
+          {
+            "muscleGroup": "Chest",
+            "totalTime": 2,
+            "exercise": "Incline Bench Press",
+            "sets": 3,
+            "reps": 10
+          },
+          {
+            "muscleGroup": "Arms",
+            "totalTime": 2,
+            "exercise": "Tricep Pushdown",
+            "sets": 3,
+            "reps": 10
+          },
+          {
+            "muscleGroup": "Shoulders",
+            "totalTime": 2,
+            "exercise": "Upright Rows",
+            "sets": 3,
+            "reps": 10
+          }
+        ]
+      }
+    ]
+  }
+]
+
+
+export default results;
