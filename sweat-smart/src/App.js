@@ -5,6 +5,7 @@ import OpenAI from "openai";
 import HomePage from "./components/HomePage/HomePage";
 import "./App.css";
 import Output from "./components/ResultsPage/Output";
+import PracticeCard from "./components/ResultsPage/PracticeCard";
 
 // const openai = new OpenAI({
 //   apiKey: "",
@@ -67,13 +68,13 @@ function App() {
       ],
     };
 
-    // fetch("https://api.openai.com/v1/engines/gpt-3.5-turbo/completions", {
-    fetch("/results.js", {
+    fetch("https://api.openai.com/v1/engines/gpt-3.5-turbo/completions", {
+    // fetch("/results.js", {
       method: "POST",
-      // headers: {
-      //   "Content-Type": "application/json",
-      //   Authorization: "Bearer YOUR_API_KEY", // Replace with your actual API key
-      // },
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: "Bearer YOUR_API_KEY", // Replace with your actual API key
+      },
       body: JSON.stringify(input),
     })
       .then((response) => response.json())
@@ -90,6 +91,7 @@ function App() {
     <div>
       <HomePage />
       <Output result={planResult} />
+      <PracticeCard />
 
       {/* <Card /> */}
     </div>
