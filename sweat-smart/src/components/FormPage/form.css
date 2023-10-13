@@ -31,9 +31,10 @@ input {
 }
 
 johns-branch
-input[type=checkbox] 
+input[type=checkbox] {
     margin-left: 10px;
 }
+
 input[type="checkbox"] {
   margin-left: 10px;
 }
