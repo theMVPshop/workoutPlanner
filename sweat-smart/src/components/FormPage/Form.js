@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import "./form.css";
 
-
 function Form({ onGeneratePlan }) {
   const [name, setName] = useState("");
   const [gender, setGender] = useState("Male");
@@ -61,7 +60,7 @@ function Form({ onGeneratePlan }) {
           <br />
           <label className="daylabel">
             Sunday
-            <input type="checkbox" className="check"/>
+            <input type="checkbox" className="check" />
           </label>
           <label className="daylabel">
             Monday
@@ -138,11 +137,11 @@ function Form({ onGeneratePlan }) {
             <option value="Advanced">Advanced</option>
           </select>
         </label>
-        <br />
-
-        <button type="button" onClick={generatePlan} className="generateplan">
-          Generate Plan
-        </button>
+        <div className="submit_button">
+          <button type="button" onClick={generatePlan} className="generateplan">
+            <span>Generate Plan</span>
+          </button>
+        </div>
       </form>
     </div>
   );
