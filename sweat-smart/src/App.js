@@ -23,7 +23,7 @@ function App() {
   const pageRef = useRef(null);
 
   const handleScroll = () => {
-    pageRef.current.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    pageRef.current.scrollIntoView({ behavior: 'smooth', block: 'start' });
   };
 
   return (

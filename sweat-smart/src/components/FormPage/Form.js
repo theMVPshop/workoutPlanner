@@ -5,17 +5,28 @@ function Form({ onGeneratePlan, pageRef }) {
   const [name, setName] = useState("");
   const [gender, setGender] = useState("Male");
   const [daysOfWeek, setDaysOfWeek] = useState([]);
+  const [selectedWorkout, setSelectedWorkout] = useState([]);
   const [bodyPart, setBodyPart] = useState("Full Body");
   const [timeRange, setTimeRange] = useState("30 minutes");
   const [fitnessLevel, setFitnessLevel] = useState("Beginner");
 
-  const handleDaysOfWeekChange = (event) => {
-    const selectedOptions = Array.from(
-      event.target.selectedOptions,
-      (option) => option.value
+const toggleDayOfWeek = (day) => {
+  if (daysOfWeek.includes(day)) {
+    setDaysOfWeek(daysOfWeek.filter((selectedDay) => selectedDay !== day));
+  } else {
+    setDaysOfWeek([...daysOfWeek, day]);
+  }
+};
+
+const toggleWorkouts = (wo) => {
+  if (selectedWorkout.includes(wo)) {
+    setSelectedWorkout(
+      selectedWorkout.filter((selectedWo) => selectedWo !== wo)
     );
-    setDaysOfWeek(selectedOptions);
-  };
+  } else {
+    setSelectedWorkout([...selectedWorkout, wo]);
+  }
+};
 
   const generatePlan = () => {
     const planData = {
@@ -30,8 +41,10 @@ function Form({ onGeneratePlan, pageRef }) {
   };
 
   return (
-    <div ref={pageRef} className="maindiv">
-      <h2 className="signup">Sign Up!</h2>
+    <div className="maindiv">
+      <h2 ref={pageRef} className="signup">
+        Sign Up!
+      </h2>
       <form className="formmain">
         <label>
           Full Name
@@ -61,72 +74,75 @@ function Form({ onGeneratePlan, pageRef }) {
           <div className="suntues">
             <label className="daylabel">
               Sunday
-              <input type="checkbox" className="check" />
+              <input type="checkbox" className="check" value="Sunday" />
+              {console.log(daysOfWeek)}
             </label>
             <label className="daylabel">
               Monday
-              <input type="checkbox" />
+              <input type="checkbox" value="Monday" />
             </label>
             <label className="daylabel">
               Tuesday
-              <input type="checkbox" />
+              <input type="checkbox" value="Tuesday" />
             </label>
           </div>
           <div className="wedsat">
             <label className="daylabel">
               Wednesday
-              <input type="checkbox" />
+              <input type="checkbox" value="Wednesday" />
             </label>
             <label className="daylabel">
               Thursday
-              <input type="checkbox" />
+              <input type="checkbox" value="Thursday" />
             </label>
             <label className="daylabel">
               Friday
-              <input type="checkbox" />
+              <input type="checkbox" value="Friday" />
             </label>
             <label className="daylabel">
               Saturday
-              <input type="checkbox" />
+              <input type="checkbox" value="Saturday" />
             </label>
           </div>
         </label>
         <br />
 
         <label>
-          Workouts
+          <text className="workouts">Workouts</text>
           <br />
-          <div className="suntues">
-            <label className="daylabel">
-              Yoga
-              <input type="checkbox" className="check" />
-            </label>
-            <label className="daylabel">
-              HITT
-              <input type="checkbox" />
-            </label>
-          </div>
-          <div className="wedsat">
-            <label className="daylabel">
-              Cardio
-              <input type="checkbox" />
-            </label>
-            <label className="daylabel">
-              Weight Loss
-              <input type="checkbox" />
-            </label>
-            <label className="daylabel">
-              Strength Training
-              <input type="checkbox" />
-            </label>
+          <div onChange={() => toggleWorkouts}>
+            <div className="yogahitt">
+              <label className="daylabel">
+                Yoga
+                <input type="checkbox" className="check" value="Yoga" />
+              </label>
+              <label className="daylabel">
+                HITT
+                <input type="checkbox" value="HITT" />
+              </label>
+            </div>
+            <div className="cardiost">
+              <label className="daylabel">
+                Cardio
+                <input type="checkbox" value="Cardio" />
+              </label>
+              <label className="daylabel">
+                Weight Loss
+                <input type="checkbox" value="Weight Loss" />
+              </label>
+              <label className="daylabel">
+                Strength Training
+                <input type="checkbox" value="Strength Training" />
+              </label>
+            </div>
           </div>
         </label>
         <br />
 
         <label>
-          Muscle Groups
+          <text className="musclegroups">Muscle Groups</text>
           <br />
-          <div className="suntues">
+          <div className="chestarms">
             <label className="daylabel">
               Chest
               <input type="checkbox" className="check" />
@@ -140,7 +156,7 @@ function Form({ onGeneratePlan, pageRef }) {
               <input type="checkbox" />
             </label>
           </div>
-          <div className="wedsat">
+          <div className="shoulders">
             <label className="daylabel">
               Shoulders
               <input type="checkbox" />
