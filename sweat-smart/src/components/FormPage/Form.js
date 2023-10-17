@@ -11,12 +11,12 @@ function Form({ onGeneratePlan, pageRef }) {
   const [timeRange, setTimeRange] = useState("");
   const [fitnessLevel, setFitnessLevel] = useState("");
 
-  const handleDaysOfWeekChange = (event) => {
+  const handleDays = (event) => {
     const selectedOptions = Array.from(
       event.target.selectedOptions,
       (option) => option.value
     );
-    setDaysOfWeek(selectedOptions);
+    setDays(selectedOptions);
   };
 
   const handleWorkoutTypes = (e) => {
