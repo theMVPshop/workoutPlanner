@@ -44,6 +44,8 @@
     box-shadow: 4px 4px 8px 0.2px #15f099;
     width: 100%;
     
+
+    
 }
 
 .days {
@@ -54,7 +56,7 @@
     margin: 2rem;
     text-align: center;
     /* width: 300px; */
-    width: 100%;
+    /* width: 100%; */
     /* flex: 0 0 auto; */
     /* width: calc(50% - 20px); */
     /* max-width: 500px; */
@@ -196,7 +198,7 @@ p {
       align-items: center;
       width: 50%; */
 
-      background-color: var(--second-color);
+      /* background-color: var(--second-color); */
       
     }
 
@@ -225,3 +227,29 @@ p {
       margin: 10px; 
     } */
   } 
+
+/* vic code for header  */
+  .card-header {
+    width: 95%;
+    /* border: 3px solid black; */
+    background-color: rgb(13, 110, 124, 0.15);
+    backdrop-filter: blur(5px);
+    border-radius: 25px;
+    margin: 2rem 0;
+    padding: 2rem 3rem;
+  }
+  .card-header h1,
+  h3,
+  h4,
+  p {
+    line-height: 1.5;
+    color: var(--lightgreen);
+    margin-bottom: 10px;
+  }
+  .card-header h1 {
+    color: var(--txt-color);
+  }
+  .card-header strong {
+    font-size: 1.15rem;
+    color: var(--red);
+  }

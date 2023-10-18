@@ -21,21 +21,24 @@ const results = [
             "totalTime": 2,
             "exercise": "Push Ups",
             "sets": 3,
-            "reps": 10
+            "reps": 10,
+            "video": "https://www.youtube.com/embed/your-video-id"
           },
           {
             "muscleGroup": "Chest",
             "totalTime": 2,
             "exercise": "Bench Press",
             "sets": 3,
-            "reps": 10
+            "reps": 10,
+            "video": "https://www.youtube.com/embed/your-video-id"
           },
           {
             "muscleGroup": "Chest",
             "totalTime": 2,
             "exercise": "Dumbbell Flyes",
             "sets": 3,
-            "reps": 10
+            "reps": 10,
+            "video": "https://www.youtube.com/embed/your-video-id"
           }
         ]
       },

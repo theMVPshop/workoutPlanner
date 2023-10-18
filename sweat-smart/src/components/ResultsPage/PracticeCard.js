@@ -24,9 +24,16 @@ const PracticeCard = () => {
         <h1 className="users-name">{workoutData.name}</h1>
         <h3 className="workout-breakdown">Workout</h3>
         <h4 className="routine">{workoutData.routine}</h4>
-        <p>{workoutData.summary}</p>
-        <p>{workoutData.goal}</p>
-        <p>{workoutData.additionalTips}</p>
+        <p>
+          <strong>Summary :</strong>&nbsp;&nbsp;
+          {workoutData.summary}
+        </p>
+        <p>
+          <strong>Goal :</strong>&nbsp;&nbsp;{workoutData.goal}
+        </p>
+        <p>
+          <strong>Tips :</strong>&nbsp;&nbsp;{workoutData.additionalTips}
+        </p>
         {/* <p>{workoutData.daysPerWeek} days this week</p>
           <p>{workoutData.totalTime} hours</p> */}
       </div>
@@ -71,7 +78,7 @@ const PracticeCard = () => {
                     src="https://www.youtube.com/embed/your-video-id"
                     //   frameborder="0"
                     //   allowfullscreen
-                  ></iframe>
+                  >{exercises.video}</iframe>
                 </div>
               )}
             </ul>
