@@ -1,6 +1,7 @@
 import React from "react";
 import results from "./results";
 import "./PracticeCard.css";
+// import "./PracticeCard01.css"
 import { useeffect, useState } from "react";
 import { images } from "../../constants";
 
@@ -18,11 +19,11 @@ const PracticeCard = () => {
   };
 
   return (
-    <div className="card section__padding">
-      <div className="card-header section__padding">
+    <div className="card">
+      <div className="card-header">
         <h1 className="users-name">{workoutData.name}</h1>
         <h3 className="workout-breakdown">Workout</h3>
-        <h4>{workoutData.routine}</h4>
+        <h4 className="routine">{workoutData.routine}</h4>
         <p>{workoutData.summary}</p>
         <p>{workoutData.goal}</p>
         <p>{workoutData.additionalTips}</p>
@@ -34,10 +35,11 @@ const PracticeCard = () => {
       <div className="days-container">
         {workoutData.exercises.map((exerciseDay, index) => (
           <div className="days" key={index}>
-            <h2>{Object.keys(exerciseDay)[0]}</h2>
             <div className="image-container">
               <img src={images.LOGO1} alt="logo" />
             </div>
+            <h2>{Object.keys(exerciseDay)[0]}</h2>
+            
 
             <ul>
               {exerciseDay[Object.keys(exerciseDay)[0]].map((exercise, i) => (
