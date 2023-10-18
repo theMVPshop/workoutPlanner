@@ -11,13 +11,14 @@ function Form({ onGeneratePlan, pageRef }) {
   const [timeRange, setTimeRange] = useState("");
   const [fitnessLevel, setFitnessLevel] = useState("");
 
-  const handleDays = (event) => {
-    const selectedOptions = Array.from(
-      event.target.selectedOptions,
-      (option) => option.value
-    );
-    setDays(selectedOptions);
-  };
+const handleDays = (e) => {
+  const day = e.target.value;
+  if (e.target.checked) {
+    setDays((prevDays) => [...prevDays, day]);
+  } else {
+    setDays((prevDays) => prevDays.filter((d) => d !== day));
+  }
+};
 
   const handleWorkoutTypes = (e) => {
     const type = e.target.value;
