@@ -4,10 +4,53 @@ import "aos/dist/aos.css";
 import HomePage from "./components/HomePage/HomePage";
 import Form from "./components/FormPage/Form";
 import "./App.css";
-import Output from "./components/ResultsPage/Output";
 import PracticeCard from "./components/ResultsPage/PracticeCard";
+import { prompt } from "./Prompt";
 
 function App() {
+  const [name, setName] = useState("");
+  const [gender, setGender] = useState("");
+  const [days, setDays] = useState([]);
+  const [workoutTypes, setWorkoutTypes] = useState([]);
+  const [muscleGroups, setMuscleGroups] = useState([]);
+  const [timeRange, setTimeRange] = useState("");
+  const [fitnessLevel, setFitnessLevel] = useState("");
+  const [plan, setPlan] = useState({});
+
+  const handleSubmit = (name, gender, fitnessLevel, workoutTypes, muscleGroups, days, timeRange) => {
+    prompt(name, gender, fitnessLevel, workoutTypes, muscleGroups, days, timeRange)
+    .then(generatedPlan => {
+      setPlan(generatedPlan);
+    });
+  }
+
+  const handleDays = (e) => {
+    const day = e.target.value;
+    if (e.target.checked) {
+      setDays((prevDays) => [...prevDays, day]);
+    } else {
+      setDays((prevDays) => prevDays.filter((d) => d !== day));
+    }
+  };
+  
+    const handleWorkoutTypes = (e) => {
+      const type = e.target.value;
+      if (e.target.checked) {
+        setWorkoutTypes(prevTypes => [...prevTypes, type]);
+      } else {
+        setWorkoutTypes(prevTypes => prevTypes.filter(t => t !== type));
+      }
+    };
+  
+    const handleMuscleGroups = (e) => {
+      const group = e.target.value;
+      if (e.target.checked) {
+        setMuscleGroups(prevGroups => [...prevGroups, group]);
+      } else {
+        setMuscleGroups(prevGroups => prevGroups.filter(g => g !== group));
+      }
+    };
+
   // use useEffect to apply AOS animation
   useEffect(() => {
     AOS.init({
@@ -17,7 +60,9 @@ function App() {
     AOS.refresh();
   }, []);
 
-  const [planResult, setPlanResult] = useState("");
+  useEffect(() => {
+    console.log(plan)
+  }, [plan]);
 
   const pageRef = useRef(null);
 
@@ -29,12 +74,27 @@ function App() {
     <div>
       <HomePage handleScroll={handleScroll} />
 
-      <Form pageRef={pageRef} />
+      <Form
+        pageRef={pageRef}
+        name={name}
+        gender={gender}
+        days={days}
+        workoutTypes={workoutTypes}
+        muscleGroups={muscleGroups}
+        timeRange={timeRange}
+        fitnessLevel={fitnessLevel}
+        handleDays={handleDays}
+        handleWorkoutTypes={handleWorkoutTypes} 
+        handleMuscleGroups={handleMuscleGroups}
+        setName={setName}
+        setGender={setGender}
+        setTimeRange={setTimeRange}
+        setFitnessLevel={setFitnessLevel}
+        handleSubmit={handleSubmit}
+      />
 
-      <Output result={planResult} />
       <PracticeCard />
 
-      {/* <Card /> */}
     </div>
   );
 }
