@@ -1,42 +1,25 @@
-import React, { useState } from "react";
-import { prompt } from "../../Prompt";
+import React from "react";
 import "./form.css";
 
-function Form({ onGeneratePlan, pageRef }) {
-  const [name, setName] = useState("");
-  const [gender, setGender] = useState("");
-  const [days, setDays] = useState([]);
-  const [workoutTypes, setWorkoutTypes] = useState([]);
-  const [muscleGroups, setMuscleGroups] = useState([]);
-  const [timeRange, setTimeRange] = useState("");
-  const [fitnessLevel, setFitnessLevel] = useState("");
-
-const handleDays = (e) => {
-  const day = e.target.value;
-  if (e.target.checked) {
-    setDays((prevDays) => [...prevDays, day]);
-  } else {
-    setDays((prevDays) => prevDays.filter((d) => d !== day));
-  }
-};
-
-  const handleWorkoutTypes = (e) => {
-    const type = e.target.value;
-    if (e.target.checked) {
-      setWorkoutTypes(prevTypes => [...prevTypes, type]);
-    } else {
-      setWorkoutTypes(prevTypes => prevTypes.filter(t => t !== type));
-    }
-  };
-
-  const handleMuscleGroups = (e) => {
-    const group = e.target.value;
-    if (e.target.checked) {
-      setMuscleGroups(prevGroups => [...prevGroups, group]);
-    } else {
-      setMuscleGroups(prevGroups => prevGroups.filter(g => g !== group));
-    }
-  };
+function Form(props) {
+  const {
+    pageRef,
+    name,
+    gender,
+    days,
+    workoutTypes,
+    muscleGroups,
+    timeRange,
+    fitnessLevel,
+    handleDays,
+    handleWorkoutTypes,
+    handleMuscleGroups,
+    setName,
+    setGender,
+    setTimeRange,
+    setFitnessLevel,
+    handleSubmit
+  } = props;
 
   return (
     <div className="maindiv">
@@ -206,7 +189,7 @@ const handleDays = (e) => {
           </select>
         </label>
         <div className="submit_button">
-          <button type="button" onClick={() => prompt(name, gender, fitnessLevel, workoutTypes.join(", "), muscleGroups.join(", "), days.join(", "), timeRange)} className="generateplan">
+          <button type="button" onClick={() => handleSubmit(name, gender, fitnessLevel, workoutTypes.join(", "), muscleGroups.join(", "), days.join(", "), timeRange)} className="generateplan">
             <span>Generate Plan</span>
           </button>
         </div>
