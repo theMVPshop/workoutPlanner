@@ -5,8 +5,13 @@ import "./PracticeCard.css";
 import { useeffect, useState } from "react";
 import { images } from "../../constants";
 
-const PracticeCard = () => {
-  const initialWorkoutData = results[0]; // Assuming the data is in the first element of the array
+
+const PracticeCard = ({plan, loading}) => {
+
+
+
+
+  const initialWorkoutData = results; // Assuming the data is in the first element of the array
   const [workoutData, setWorkoutData] = useState(initialWorkoutData);
   const [showVideos, setShowVideos] = useState(
     Array(workoutData.exercises.length).fill(false)
@@ -19,9 +24,12 @@ const PracticeCard = () => {
   };
 
   return (
+    <>{!loading && 
     <div className="card">
+      
       <div className="card-header">
-        <h1 className="users-name">{workoutData.name}</h1>
+      {console.log(plan.name)}
+        <h1 className="users-name">{plan.name}</h1>
         <h3 className="workout-breakdown">Workout</h3>
         <h4 className="routine">{workoutData.routine}</h4>
         <p>
@@ -85,7 +93,7 @@ const PracticeCard = () => {
           </div>
         ))}
       </div>
-    </div>
+    </div>}</>
   );
 };
 

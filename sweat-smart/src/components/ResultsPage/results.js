@@ -1,125 +1,83 @@
-const results = [
-    
-
-  {
-    "name": "Manny",
-    "routine": "Strength Training for Chest, Arms, and Shoulders",
-    "summary": "This strength training routine is designed to target your chest, arms, and shoulders. It includes exercises that will help you build muscle and strength in these areas. The routine is suitable for beginners and can be performed at the gym. You will be working out on Monday, Wednesday, Friday, and Sunday for a total of four days per week. Each workout session will last for two hours, from 10:00 PM to 12:00 AM.",
-    "goal": "The goal of this routine is to increase muscle mass and strength in your chest, arms, and shoulders.",
-    "additionalTips": [
-      "Warm up before every workout session to prevent injuries and prepare your muscles for exercise.",
-      "Focus on maintaining proper form throughout each exercise to maximize the effectiveness and avoid injury.",
-      "Gradually increase the weight or resistance as you get stronger to continue challenging your muscles."
-    ],
-    "daysPerWeek": 4,
-    "totalTime": 8,
-    "exercises": [
-      {
-        "Monday": [
-          {
-            "muscleGroup": "Chest",
-            "totalTime": 2,
-            "exercise": "Push Ups",
-            "sets": 3,
-            "reps": 10,
-            "video": "https://www.youtube.com/embed/your-video-id"
-          },
-          {
-            "muscleGroup": "Chest",
-            "totalTime": 2,
-            "exercise": "Bench Press",
-            "sets": 3,
-            "reps": 10,
-            "video": "https://www.youtube.com/embed/your-video-id"
-          },
-          {
-            "muscleGroup": "Chest",
-            "totalTime": 2,
-            "exercise": "Dumbbell Flyes",
-            "sets": 3,
-            "reps": 10,
-            "video": "https://www.youtube.com/embed/your-video-id"
-          }
-        ]
-      },
-  {
-        "Wednesday": [
-          {
-            "muscleGroup": "Arms",
-            "totalTime": 2,
-            "exercise": "Bicep Curls",
-            "sets": 3,
-            "reps": 10
-          },
-          {
-            "muscleGroup": "Arms",
-            "totalTime": 2,
-            "exercise": "Tricep Dips",
-            "sets": 3,
-            "reps": 10
-          },
-          {
-            "muscleGroup": "Arms",
-            "totalTime": 2,
-            "exercise": "Hammer Curls",
-            "sets": 3,
-            "reps": 10
-          }
-        ]
-      },
-      {
-        "Friday": [
-          {
-            "muscleGroup": "Shoulders",
-            "totalTime": 2,
-            "exercise": "Military Press",
-            "sets": 3,
-            "reps": 10
-          },
-          {
-            "muscleGroup": "Shoulders",
-            "totalTime": 2,
-            "exercise": "Lateral Raises",
-            "sets": 3,
-            "reps": 10
-          },
-          {
-            "muscleGroup": "Shoulders",
-            "totalTime": 2,
-            "exercise": "Front Raises",
-            "sets": 3,
-            "reps": 10
-          }
-        ]
-      },
-      {
-        "Sunday": [
-          {
-            "muscleGroup": "Chest",
-            "totalTime": 2,
-            "exercise": "Incline Bench Press",
-            "sets": 3,
-            "reps": 10
-          },
-          {
-            "muscleGroup": "Arms",
-            "totalTime": 2,
-            "exercise": "Tricep Pushdown",
-            "sets": 3,
-            "reps": 10
-          },
-          {
-            "muscleGroup": "Shoulders",
-            "totalTime": 2,
-            "exercise": "Upright Rows",
-            "sets": 3,
-            "reps": 10
-          }
-        ]
-      }
-    ]
-  }
-]
-
+const results = {
+  "name": "Steve",
+  "routine": "Strength and Weight Loss Workout",
+  "summary": "This routine is a combination of strength training and cardiovascular exercises to help you build muscle and burn fat. By targeting your chest, arms, and legs, you will be able to develop overall strength and tone your body. The routine is designed for intermediate fitness levels to provide a challenging workout.",
+  "goal": "The goal of this routine is to increase your strength, promote weight loss, and improve muscle definition in your chest, arms, and legs.",
+  "additionalTips": [
+    "Make sure to warm up before each workout to prevent injuries and improve performance.",
+    "Focus on proper form and technique for each exercise to maximize results.",
+    "Gradually increase the weights or resistance as your strength improves to continuously challenge your muscles."
+  ],
+  "daysPerWeek": 3,
+  "totalTime": "2.5 hours",
+  "exercises": [
+    {
+      "Sunday": [
+        {
+          "muscleGroup": "Chest",
+          "exercise": "Push Ups",
+          "sets": 3,
+          "reps": 12
+        },
+        {
+          "muscleGroup": "Arms",
+          "exercise": "Tricep Dips",
+          "sets": 3,
+          "reps": 12
+        },
+        {
+          "muscleGroup": "Legs",
+          "exercise": "Squats",
+          "sets": 3,
+          "reps": 12
+        }
+      ]
+    },
+    {
+      "Monday": [
+        {
+          "muscleGroup": "Chest",
+          "exercise": "Bench Press",
+          "sets": 4,
+          "reps": 8
+        },
+        {
+          "muscleGroup": "Arms",
+          "exercise": "Bicep Curls",
+          "sets": 4,
+          "reps": 8
+        },
+        {
+          "muscleGroup": "Legs",
+          "exercise": "Barbell Lunges",
+          "sets": 4,
+          "reps": 8
+        }
+      ]
+    },
+    {
+      "Tuesday": [
+        {
+          "muscleGroup": "Chest",
+          "exercise": "Incline Dumbbell Press",
+          "sets": 3,
+          "reps": 10
+        },
+        {
+          "muscleGroup": "Arms",
+          "exercise": "Tricep Pushdowns",
+          "sets": 3,
+          "reps": 10
+        },
+        {
+          "muscleGroup": "Legs",
+          "exercise": "Deadlifts",
+          "sets": 3,
+          "reps": 10
+        }
+      ]
+    }
+  ]
+}
 
 export default results;

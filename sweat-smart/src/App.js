@@ -16,11 +16,14 @@ function App() {
   const [timeRange, setTimeRange] = useState("");
   const [fitnessLevel, setFitnessLevel] = useState("");
   const [plan, setPlan] = useState({});
+  const [loading, setLoading] = useState(true)
 
   const handleSubmit = (name, gender, fitnessLevel, workoutTypes, muscleGroups, days, timeRange) => {
+    setLoading(true)
     prompt(name, gender, fitnessLevel, workoutTypes, muscleGroups, days, timeRange)
     .then(generatedPlan => {
       setPlan(generatedPlan);
+      setLoading(false)
     });
   }
 
@@ -93,7 +96,7 @@ function App() {
         handleSubmit={handleSubmit}
       />
 
-      <PracticeCard />
+      <PracticeCard plan={plan} loading={loading}/>
 
     </div>
   );
