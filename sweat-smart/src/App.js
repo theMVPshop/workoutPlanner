@@ -16,7 +16,7 @@ function App() {
   const [timeRange, setTimeRange] = useState("");
   const [fitnessLevel, setFitnessLevel] = useState("");
   const [plan, setPlan] = useState({});
-  const [loading, setLoading] = useState(false);
+  const [loading, setLoading] = useState(true);
 
   const handleSubmit = (
     name,
@@ -37,7 +37,8 @@ function App() {
       days,
       timeRange
     ).then((generatedPlan) => {
-      setPlan(generatedPlan);
+      let jsonObject = generatedPlan.replace(/\n/g, '<br>');
+      setPlan(jsonObject);
       setLoading(false);
     });
   };

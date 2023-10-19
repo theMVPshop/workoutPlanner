@@ -90,7 +90,7 @@ const PracticeCard = ({ plan, loading, preloadRef }) => {
                         //   frameborder="0"
                         //   allowfullscreen
                       >
-                        {exercises.video}
+                        {/* {exercises.video} */}
                       </iframe>
                     </div>
                   )}
