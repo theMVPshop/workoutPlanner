@@ -39,6 +39,7 @@ function App() {
     ).then((generatedPlan) => {
       let string = generatedPlan.replace(/\\"/g, '"').replace(/\\n/g, '\n');
       const jsonObject = JSON.parse(string);
+      console.log(jsonObject)
       setPlan(jsonObject);
       setLoading(false);
     });
