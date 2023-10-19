@@ -23,9 +23,11 @@ function Form(props) {
 
   return (
     <div className="maindiv">
-      <h2 ref={pageRef} className="signup">
-        Sign Up!
-      </h2>
+      <div className="sign">
+        <h2 ref={pageRef} className="signup">
+          Sign Up!
+        </h2>
+      </div>
       <form className="formmain">
         <label>
           Full Name
@@ -56,7 +58,12 @@ function Form(props) {
             <div className="suntues">
               <label className="daylabel">
                 Sunday
-                <input type="checkbox" className="check" data-day="Sunday" value="Sunday" />
+                <input
+                  type="checkbox"
+                  className="check"
+                  data-day="Sunday"
+                  value="Sunday"
+                />
               </label>
               <label className="daylabel">
                 Monday
@@ -91,32 +98,34 @@ function Form(props) {
         <br />
 
         <label>
-          <text className="workouts">Workouts</text>
-          <br />
-          <div onChange={handleWorkoutTypes}>
-            <div className="suntues">
-              <label className="daylabel">
-                Yoga  
-                <input type="checkbox" value="yoga" className="check"/> 
-              </label>
-              <label className="daylabel">
-                HITT
-                <input type="checkbox" value="hitt"/>
-              </label>
-            </div>
-            <div className="wedsat">
-              <label className="daylabel">
-                Cardio  
-                <input type="checkbox" value="cardio"/>
-              </label>
-              <label className="daylabel">
-                Weight Loss
-                <input type="checkbox" value="weightloss"/> 
-              </label>
-              <label className="daylabel">
-                Strength Training   
-                <input type="checkbox" value="strength"/>
-              </label>
+          <div className="workouts">
+            <text>Workouts</text>
+            <br />
+            <div onChange={handleWorkoutTypes}>
+              <div className="yogahiit">
+                <label className="daylabel">
+                  Yoga
+                  <input type="checkbox" value="yoga" className="check" />
+                </label>
+                <label className="daylabel">
+                  HIIT
+                  <input type="checkbox" value="hitt" />
+                </label>
+              </div>
+              <div className="cardiost">
+                <label className="daylabel">
+                  Cardio
+                  <input type="checkbox" value="cardio" />
+                </label>
+                <label className="daylabel">
+                  Weight Loss
+                  <input type="checkbox" value="weightloss" />
+                </label>
+                <label className="daylabel">
+                  Strength Training
+                  <input type="checkbox" value="strength" />
+                </label>
+              </div>
             </div>
           </div>
         </label>
@@ -127,7 +136,7 @@ function Form(props) {
           <text className="musclegroups">Muscle Groups</text>
           <br />
           <div onChange={handleMuscleGroups}>
-            <div className="suntues">
+            <div className="chestarms">
               <label className="daylabel">
                 Chest
                 <input type="checkbox" className="check" value="Chest" />
@@ -141,7 +150,7 @@ function Form(props) {
                 <input type="checkbox" value="Arms" />
               </label>
             </div>
-            <div className="wedsat">
+            <div className="shoulders">
               <label className="daylabel">
                 Shoulders
                 <input type="checkbox" value="Shoulders" />
@@ -189,7 +198,21 @@ function Form(props) {
           </select>
         </label>
         <div className="submit_button">
-          <button type="button" onClick={() => handleSubmit(name, gender, fitnessLevel, workoutTypes.join(", "), muscleGroups.join(", "), days.join(", "), timeRange)} className="generateplan">
+          <button
+            type="button"
+            onClick={() =>
+              handleSubmit(
+                name,
+                gender,
+                fitnessLevel,
+                workoutTypes.join(", "),
+                muscleGroups.join(", "),
+                days.join(", "),
+                timeRange
+              )
+            }
+            className="generateplan"
+          >
             <span>Generate Plan</span>
           </button>
         </div>

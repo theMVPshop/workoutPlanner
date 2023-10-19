@@ -1,3 +1,4 @@
+/* eslint-disable no-undef */
 import React from "react";
 import results from "./results";
 import "./PracticeCard.css";
