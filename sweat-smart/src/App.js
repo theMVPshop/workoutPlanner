@@ -37,7 +37,8 @@ function App() {
       days,
       timeRange
     ).then((generatedPlan) => {
-      let jsonObject = generatedPlan.replace(/\n/g, '<br>');
+      let string = generatedPlan.replace(/\\"/g, '"').replace(/\\n/g, '\n');
+      const jsonObject = JSON.parse(string);
       setPlan(jsonObject);
       setLoading(false);
     });
