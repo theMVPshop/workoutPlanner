@@ -18,7 +18,8 @@ function Form(props) {
     setGender,
     setTimeRange,
     setFitnessLevel,
-    handleSubmit
+    handleSubmit,
+    handleScrollPreload,
   } = props;
 
   return (
@@ -56,7 +57,12 @@ function Form(props) {
             <div className="suntues">
               <label className="daylabel">
                 Sunday
-                <input type="checkbox" className="check" data-day="Sunday" value="Sunday" />
+                <input
+                  type="checkbox"
+                  className="check"
+                  data-day="Sunday"
+                  value="Sunday"
+                />
               </label>
               <label className="daylabel">
                 Monday
@@ -96,26 +102,26 @@ function Form(props) {
           <div onChange={handleWorkoutTypes}>
             <div className="suntues">
               <label className="daylabel">
-                Yoga  
-                <input type="checkbox" value="yoga" className="check"/> 
+                Yoga
+                <input type="checkbox" value="yoga" className="check" />
               </label>
               <label className="daylabel">
                 HITT
-                <input type="checkbox" value="hitt"/>
+                <input type="checkbox" value="hitt" />
               </label>
             </div>
             <div className="wedsat">
               <label className="daylabel">
-                Cardio  
-                <input type="checkbox" value="cardio"/>
+                Cardio
+                <input type="checkbox" value="cardio" />
               </label>
               <label className="daylabel">
                 Weight Loss
-                <input type="checkbox" value="weightloss"/> 
+                <input type="checkbox" value="weightloss" />
               </label>
               <label className="daylabel">
-                Strength Training   
-                <input type="checkbox" value="strength"/>
+                Strength Training
+                <input type="checkbox" value="strength" />
               </label>
             </div>
           </div>
@@ -189,7 +195,22 @@ function Form(props) {
           </select>
         </label>
         <div className="submit_button">
-          <button type="button" onClick={() => handleSubmit(name, gender, fitnessLevel, workoutTypes.join(", "), muscleGroups.join(", "), days.join(", "), timeRange)} className="generateplan">
+          <button
+            type="button"
+            onClick={() => {
+              handleScrollPreload();
+              handleSubmit(
+                name,
+                gender,
+                fitnessLevel,
+                workoutTypes.join(", "),
+                muscleGroups.join(", "),
+                days.join(", "),
+                timeRange
+              );
+            }}
+            className="generateplan"
+          >
             <span>Generate Plan</span>
           </button>
         </div>
