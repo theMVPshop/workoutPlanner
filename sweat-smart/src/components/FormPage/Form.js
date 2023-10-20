@@ -1,5 +1,5 @@
-import React from "react";
-import "./form.css";
+import React from "react"
+import "./form.css"
 
 function Form(props) {
   const {
@@ -20,8 +20,29 @@ function Form(props) {
     setFitnessLevel,
     handleSubmit,
     handleScrollPreload,
-    setClicked
-  } = props;
+    setClicked,
+  } = props
+
+  const checkboxValidation = (className) => {
+    let el = document.getElementsByClassName(className)
+
+    let atLeastOneChecked = false //at least one cb is checked
+    for (let i = 0; i < el.length; i++) {
+      if (el[i].checked === true) {
+        atLeastOneChecked = true
+      }
+    }
+
+    if (atLeastOneChecked === true) {
+      for (let i = 0; i < el.length; i++) {
+        el[i].required = false
+      }
+    } else {
+      for (let i = 0; i < el.length; i++) {
+        el[i].required = true
+      }
+    }
+  }
 
   return (
     <div className="maindiv">
@@ -35,6 +56,7 @@ function Form(props) {
           Full Name
           <br />
           <input
+            required
             type="text"
             value={name}
             onChange={(e) => setName(e.target.value)}
@@ -45,7 +67,12 @@ function Form(props) {
         <label>
           Gender
           <br />
-          <select value={gender} onChange={(e) => setGender(e.target.value)}>
+          <select
+            required
+            value={gender}
+            onChange={(e) => setGender(e.target.value)}
+          >
+            <option value="">Select</option>
             <option value="Male">Male</option>
             <option value="Female">Female</option>
             <option value="Female">Non Binary</option>
@@ -61,37 +88,81 @@ function Form(props) {
               <label className="daylabel">
                 Sunday
                 <input
+                  required
                   type="checkbox"
-                  className="check"
                   data-day="Sunday"
                   value="Sunday"
+                  className="dayInput"
+                  onClick={checkboxValidation("dayInput")}
                 />
               </label>
               <label className="daylabel">
                 Monday
-                <input type="checkbox" data-day="Monday" value="Monday" />
+                <input
+                  required
+                  type="checkbox"
+                  data-day="Monday"
+                  value="Monday"
+                  className="dayInput"
+                  onClick={checkboxValidation("dayInput")}
+                />
               </label>
               <label className="daylabel">
                 Tuesday
-                <input type="checkbox" data-day="Tuesday" value="Tuesday" />
+                <input
+                  required
+                  type="checkbox"
+                  data-day="Tuesday"
+                  value="Tuesday"
+                  className="dayInput"
+                  onClick={checkboxValidation("dayInput")}
+                />
               </label>
             </div>
             <div className="wedsat">
               <label className="daylabel">
                 Wednesday
-                <input type="checkbox" data-day="Wednesday" value="Wednesday" />
+                <input
+                  required
+                  type="checkbox"
+                  data-day="Wednesday"
+                  value="Wednesday"
+                  className="dayInput"
+                  onClick={checkboxValidation("dayInput")}
+                />
               </label>
               <label className="daylabel">
                 Thursday
-                <input type="checkbox" data-day="Thursday" value="Thursday" />
+                <input
+                  required
+                  type="checkbox"
+                  data-day="Thursday"
+                  value="Thursday"
+                  className="dayInput"
+                  onClick={checkboxValidation("dayInput")}
+                />
               </label>
               <label className="daylabel">
                 Friday
-                <input type="checkbox" data-day="Friday" value="Friday" />
+                <input
+                  required
+                  type="checkbox"
+                  data-day="Friday"
+                  value="Friday"
+                  className="dayInput"
+                  onClick={checkboxValidation("dayInput")}
+                />
               </label>
               <label className="daylabel">
                 Saturday
-                <input type="checkbox" data-day="Saturday" value="Saturday" />
+                <input
+                  required
+                  type="checkbox"
+                  data-day="Saturday"
+                  value="Saturday"
+                  className="dayInput"
+                  onClick={checkboxValidation("dayInput")}
+                />
               </label>
             </div>
           </div>
@@ -107,25 +178,55 @@ function Form(props) {
               <div className="yogahiit">
                 <label className="daylabel">
                   Yoga
-                  <input type="checkbox" value="yoga" className="check" />
+                  <input
+                    required
+                    onClick={checkboxValidation("workoutInput")}
+                    className="workoutInput"
+                    type="checkbox"
+                    value="yoga"
+                  />
                 </label>
                 <label className="daylabel">
                   HIIT
-                  <input type="checkbox" value="hitt" />
+                  <input
+                    required
+                    onClick={checkboxValidation("workoutInput")}
+                    className="workoutInput"
+                    type="checkbox"
+                    value="hitt"
+                  />
                 </label>
               </div>
               <div className="cardiost">
                 <label className="daylabel">
                   Cardio
-                  <input type="checkbox" value="cardio" />
+                  <input
+                    required
+                    onClick={checkboxValidation("workoutInput")}
+                    className="workoutInput"
+                    type="checkbox"
+                    value="cardio"
+                  />
                 </label>
                 <label className="daylabel">
                   Weight Loss
-                  <input type="checkbox" value="weightloss" />
+                  <input
+                    required
+                    onClick={checkboxValidation("workoutInput")}
+                    className="workoutInput"
+                    type="checkbox"
+                    value="weightloss"
+                  />
                 </label>
                 <label className="daylabel">
                   Strength Training
-                  <input type="checkbox" value="strength" />
+                  <input
+                    required
+                    onClick={checkboxValidation("workoutInput")}
+                    className="workoutInput"
+                    type="checkbox"
+                    value="strength"
+                  />
                 </label>
               </div>
             </div>
@@ -141,29 +242,65 @@ function Form(props) {
             <div className="chestarms">
               <label className="daylabel">
                 Chest
-                <input type="checkbox" className="check" value="Chest" />
+                <input
+                  required
+                  onClick={checkboxValidation("muscleInput")}
+                  className="muscleInput"
+                  type="checkbox"
+                  value="Chest"
+                />
               </label>
               <label className="daylabel">
                 Back
-                <input type="checkbox" value="Back" />
+                <input
+                  required
+                  onClick={checkboxValidation("muscleInput")}
+                  className="muscleInput"
+                  type="checkbox"
+                  value="Back"
+                />
               </label>
               <label className="daylabel">
                 Arms
-                <input type="checkbox" value="Arms" />
+                <input
+                  required
+                  onClick={checkboxValidation("muscleInput")}
+                  className="muscleInput"
+                  type="checkbox"
+                  value="Arms"
+                />
               </label>
             </div>
             <div className="shoulders">
               <label className="daylabel">
                 Shoulders
-                <input type="checkbox" value="Shoulders" />
+                <input
+                  required
+                  onClick={checkboxValidation("muscleInput")}
+                  className="muscleInput"
+                  type="checkbox"
+                  value="Shoulders"
+                />
               </label>
               <label className="daylabel">
                 Legs
-                <input type="checkbox" value="Legs" />
+                <input
+                  required
+                  onClick={checkboxValidation("muscleInput")}
+                  className="muscleInput"
+                  type="checkbox"
+                  value="Legs"
+                />
               </label>
               <label className="daylabel">
                 Calves
-                <input type="checkbox" value="Calves" />
+                <input
+                  required
+                  onClick={checkboxValidation("muscleInput")}
+                  className="muscleInput"
+                  type="checkbox"
+                  value="Calves"
+                />
               </label>
             </div>
           </div>
@@ -175,9 +312,11 @@ function Form(props) {
           Time Range
           <br />
           <select
+            required
             value={timeRange}
             onChange={(e) => setTimeRange(e.target.value)}
           >
+            <option value="">Select</option>
             <option value="30 minutes">30 minutes</option>
             <option value="1 hour">1 hour</option>
             <option value="45 minutes">45 minutes</option>
@@ -191,9 +330,11 @@ function Form(props) {
           Fitness Level
           <br />
           <select
+            required
             value={fitnessLevel}
             onChange={(e) => setFitnessLevel(e.target.value)}
           >
+            <option value="">Select</option>
             <option value="Beginner">Beginner</option>
             <option value="Intermediate">Intermediate</option>
             <option value="Advanced">Advanced</option>
@@ -201,22 +342,20 @@ function Form(props) {
         </label>
         <div className="submit_button">
           <button
-            type="button"
-            onClick={() =>
-            {
-              setClicked(true);
+            type="submit"
+            onClick={() => {
+              setClicked(true)
               // handleScrollPreload();
-              handleSubmit(
-                name,
-                gender,
-                fitnessLevel,
-                workoutTypes.join(", "),
-                muscleGroups.join(", "),
-                days.join(", "),
-                timeRange
-              )
-            }
-            }
+              // handleSubmit(
+              //   name,
+              //   gender,
+              //   fitnessLevel,
+              //   workoutTypes.join(", "),
+              //   muscleGroups.join(", "),
+              //   days.join(", "),
+              //   timeRange
+              // )
+            }}
             className="generateplan"
           >
             <span>Generate Plan</span>
@@ -224,7 +363,7 @@ function Form(props) {
         </div>
       </form>
     </div>
-  );
+  )
 }
 
-export default Form;
+export default Form
