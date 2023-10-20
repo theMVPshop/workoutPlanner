@@ -205,7 +205,7 @@ function Form(props) {
             onClick={() =>
             {
               setClicked(true);
-              // handleScrollPreload();
+              setTimeout(handleScrollPreload, 100);
               handleSubmit(
                 name,
                 gender,
