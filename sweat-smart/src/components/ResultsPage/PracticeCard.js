@@ -1,3 +1,4 @@
+/* eslint-disable no-undef */
 import React from "react";
 // import results from "./results";
 import "./PracticeCard.css";
@@ -61,9 +62,10 @@ const PracticeCard = ({ plan, loading, preloadRef, clicked }) => {
 
   return (
     <>
-      {loading ? <div></div> :
+      {loading && !clicked ? <div></div> :
         (loading && clicked ?
           <section ref={preloadRef} class="sec-loading">
+            {console.log("Animation")}
             <div class="one"></div>
           </section>
        : (
@@ -120,24 +122,6 @@ const PracticeCard = ({ plan, loading, preloadRef, clicked }) => {
                       </div>
                     )}
                   )}
-                  {/* <button
-                    className="show-more-button"
-                    onClick={() => toggleVideo(index)}
-                  >
-                    {showVideos[index] ? "Show Less" : "Show VIDEO"}
-                  </button> */}
-                  {/* {showVideos[index] && (
-                    <div className="additional-info">
-                      <iframe
-                        title="Workout Video"
-                        width="560"
-                        height="315"
-                        src="https://www.youtube.com/embed/your-video-id"
-                      >
-                        {exercises.video}
-                      </iframe>
-                    </div>
-                  )} */}
                 </ul>
               </div>
             ))}
