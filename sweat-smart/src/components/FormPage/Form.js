@@ -51,7 +51,23 @@ function Form(props) {
           Sign Up!
         </h2>
       </div>
-      <form className="formmain">
+      <form
+        className="formmain"
+        onSubmit={(e) => {
+          e.preventDefault()
+          setClicked(true)
+          setTimeout(handleScrollPreload, 100)
+          // handleSubmit(
+          //   name,
+          //   gender,
+          //   fitnessLevel,
+          //   workoutTypes.join(", "),
+          //   muscleGroups.join(", "),
+          //   days.join(", "),
+          //   timeRange
+          // )
+        }}
+      >
         <label>
           Full Name
           <br />
@@ -341,25 +357,7 @@ function Form(props) {
           </select>
         </label>
         <div className="submit_button">
-          <button
-            type="button"
-            onClick={() =>
-            {
-              setClicked(true);
-              setTimeout(handleScrollPreload, 100);
-              handleSubmit(
-                name,
-                gender,
-                fitnessLevel,
-                workoutTypes.join(", "),
-                muscleGroups.join(", "),
-                days.join(", "),
-                timeRange
-              )
-            }
-            }
-            className="generateplan"
-          >
+          <button type="submit" className="generateplan">
             <span>Generate Plan</span>
           </button>
         </div>
@@ -368,4 +366,4 @@ function Form(props) {
   )
 }
 
-export default Form;
+export default Form
