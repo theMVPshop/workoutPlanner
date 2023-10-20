@@ -17,6 +17,7 @@ function App() {
   const [fitnessLevel, setFitnessLevel] = useState("");
   const [plan, setPlan] = useState({});
   const [loading, setLoading] = useState(true);
+  const [clicked, setClicked] = useState(false);
 
   const handleSubmit = (
     name,
@@ -28,6 +29,7 @@ function App() {
     timeRange
   ) => {
     setLoading(true);
+    setClicked(true);
     prompt(
       name,
       gender,
@@ -42,6 +44,7 @@ function App() {
       console.log(jsonObject)
       setPlan(jsonObject);
       setLoading(false);
+      setClicked(false)
     });
   };
 
@@ -119,9 +122,10 @@ function App() {
         setFitnessLevel={setFitnessLevel}
         handleSubmit={handleSubmit}
         handleScrollPreload={handleScrollPreload}
+        setClicked={setClicked}
       />
 
-      <PracticeCard plan={plan} loading={loading} preloadRef={preloadRef} />
+      <PracticeCard clicked={clicked} plan={plan} loading={loading} preloadRef={preloadRef} />
     </div>
   );
 }

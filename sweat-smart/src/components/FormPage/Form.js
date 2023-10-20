@@ -20,6 +20,7 @@ function Form(props) {
     setFitnessLevel,
     handleSubmit,
     handleScrollPreload,
+    setClicked
   } = props;
 
   return (
@@ -198,7 +199,8 @@ function Form(props) {
           <button
             type="button"
             onClick={() => {
-              handleScrollPreload();
+              // handleScrollPreload();
+              setClicked(true);
               handleSubmit(
                 name,
                 gender,

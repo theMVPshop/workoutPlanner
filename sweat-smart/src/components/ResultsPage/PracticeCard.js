@@ -46,7 +46,7 @@ const nameMatch = (exercise) => {
   return false;
 };
 
-const PracticeCard = ({ plan, loading, preloadRef }) => {
+const PracticeCard = ({ plan, loading, preloadRef, clicked }) => {
   // const initialplan = results;
   // const [plan, setplan] = useState(initialWorkoutData);
   // const [showVideos, setShowVideos] = useState(
@@ -61,11 +61,12 @@ const PracticeCard = ({ plan, loading, preloadRef }) => {
 
   return (
     <>
-      {loading ? (
-        <section ref={preloadRef} class="sec-loading">
-          <div class="one"></div>
-        </section>
-      ) : (
+      {loading ? <div></div> :
+        (loading && clicked ?
+          <section ref={preloadRef} class="sec-loading">
+            <div class="one"></div>
+          </section>
+       : (
         <div className="card">
           <div className="card-header">
             <h1 className="users-name">Hello, {plan.name}!</h1>
@@ -142,7 +143,7 @@ const PracticeCard = ({ plan, loading, preloadRef }) => {
             ))}
           </div>
         </div>
-      )}
+      ))}
     </>
   );
 };
