@@ -342,20 +342,22 @@ function Form(props) {
         </label>
         <div className="submit_button">
           <button
-            type="submit"
-            onClick={() => {
-              setClicked(true)
-              // handleScrollPreload();
-              // handleSubmit(
-              //   name,
-              //   gender,
-              //   fitnessLevel,
-              //   workoutTypes.join(", "),
-              //   muscleGroups.join(", "),
-              //   days.join(", "),
-              //   timeRange
-              // )
-            }}
+            type="button"
+            onClick={() =>
+            {
+              setClicked(true);
+              setTimeout(handleScrollPreload, 100);
+              handleSubmit(
+                name,
+                gender,
+                fitnessLevel,
+                workoutTypes.join(", "),
+                muscleGroups.join(", "),
+                days.join(", "),
+                timeRange
+              )
+            }
+            }
             className="generateplan"
           >
             <span>Generate Plan</span>
@@ -366,4 +368,4 @@ function Form(props) {
   )
 }
 
-export default Form
+export default Form;

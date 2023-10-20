@@ -1,4 +1,4 @@
-export const array = [
+export const videoArray = [
   {name: "Abdominal Crunch", video: "abdominal_crunch.mp4"},
   {name: "Air Squad Bent Arms", video: "air_squad_bent_arms.mp4"},
   {name: "Bicycle Crunch", video: "bicycle_crunch.mp4"},
