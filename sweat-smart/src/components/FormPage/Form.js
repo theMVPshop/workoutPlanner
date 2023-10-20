@@ -18,7 +18,8 @@ function Form(props) {
     setGender,
     setTimeRange,
     setFitnessLevel,
-    handleSubmit
+    handleSubmit,
+    handleScrollPreload,
   } = props;
 
   return (

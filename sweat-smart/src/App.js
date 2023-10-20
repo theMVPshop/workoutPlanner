@@ -16,16 +16,33 @@ function App() {
   const [timeRange, setTimeRange] = useState("");
   const [fitnessLevel, setFitnessLevel] = useState("");
   const [plan, setPlan] = useState({});
-  const [loading, setLoading] = useState(true)
+  const [loading, setLoading] = useState(true);
 
-  const handleSubmit = (name, gender, fitnessLevel, workoutTypes, muscleGroups, days, timeRange) => {
-    setLoading(true)
-    prompt(name, gender, fitnessLevel, workoutTypes, muscleGroups, days, timeRange)
-    .then(generatedPlan => {
-      setPlan(generatedPlan);
-      setLoading(false)
+  const handleSubmit = (
+    name,
+    gender,
+    fitnessLevel,
+    workoutTypes,
+    muscleGroups,
+    days,
+    timeRange
+  ) => {
+    setLoading(true);
+    prompt(
+      name,
+      gender,
+      fitnessLevel,
+      workoutTypes,
+      muscleGroups,
+      days,
+      timeRange
+    ).then((generatedPlan) => {
+      let string = generatedPlan.replace(/\\"/g, '"').replace(/\\n/g, '\n');
+      const jsonObject = JSON.parse(string);
+      setPlan(jsonObject);
+      setLoading(false);
     });
-  }
+  };
 
   const handleDays = (e) => {
     const day = e.target.value;
@@ -35,24 +52,24 @@ function App() {
       setDays((prevDays) => prevDays.filter((d) => d !== day));
     }
   };
-  
-    const handleWorkoutTypes = (e) => {
-      const type = e.target.value;
-      if (e.target.checked) {
-        setWorkoutTypes(prevTypes => [...prevTypes, type]);
-      } else {
-        setWorkoutTypes(prevTypes => prevTypes.filter(t => t !== type));
-      }
-    };
-  
-    const handleMuscleGroups = (e) => {
-      const group = e.target.value;
-      if (e.target.checked) {
-        setMuscleGroups(prevGroups => [...prevGroups, group]);
-      } else {
-        setMuscleGroups(prevGroups => prevGroups.filter(g => g !== group));
-      }
-    };
+
+  const handleWorkoutTypes = (e) => {
+    const type = e.target.value;
+    if (e.target.checked) {
+      setWorkoutTypes((prevTypes) => [...prevTypes, type]);
+    } else {
+      setWorkoutTypes((prevTypes) => prevTypes.filter((t) => t !== type));
+    }
+  };
+
+  const handleMuscleGroups = (e) => {
+    const group = e.target.value;
+    if (e.target.checked) {
+      setMuscleGroups((prevGroups) => [...prevGroups, group]);
+    } else {
+      setMuscleGroups((prevGroups) => prevGroups.filter((g) => g !== group));
+    }
+  };
 
   // use useEffect to apply AOS animation
   useEffect(() => {
@@ -64,13 +81,19 @@ function App() {
   }, []);
 
   useEffect(() => {
-    console.log(plan)
+    console.log(plan);
   }, [plan]);
 
   const pageRef = useRef(null);
 
   const handleScroll = () => {
-    pageRef.current.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    pageRef.current.scrollIntoView({ behavior: "smooth", block: "start" });
+  };
+  //preload
+  const preloadRef = useRef();
+
+  const handleScrollPreload = () => {
+    preloadRef.current.scrollIntoView({ behavior: "smooth", block: "start" });
   };
 
   return (
@@ -87,17 +110,17 @@ function App() {
         timeRange={timeRange}
         fitnessLevel={fitnessLevel}
         handleDays={handleDays}
-        handleWorkoutTypes={handleWorkoutTypes} 
+        handleWorkoutTypes={handleWorkoutTypes}
         handleMuscleGroups={handleMuscleGroups}
         setName={setName}
         setGender={setGender}
         setTimeRange={setTimeRange}
         setFitnessLevel={setFitnessLevel}
         handleSubmit={handleSubmit}
+        handleScrollPreload={handleScrollPreload}
       />
 
-      <PracticeCard plan={plan} loading={loading}/>
-
+      <PracticeCard plan={plan} loading={loading} preloadRef={preloadRef} />
     </div>
   );
 }
