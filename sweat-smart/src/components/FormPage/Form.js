@@ -57,15 +57,15 @@ function Form(props) {
           e.preventDefault()
           setClicked(true)
           setTimeout(handleScrollPreload, 100)
-          // handleSubmit(
-          //   name,
-          //   gender,
-          //   fitnessLevel,
-          //   workoutTypes.join(", "),
-          //   muscleGroups.join(", "),
-          //   days.join(", "),
-          //   timeRange
-          // )
+          handleSubmit(
+            name,
+            gender,
+            fitnessLevel,
+            workoutTypes.join(", "),
+            muscleGroups.join(", "),
+            days.join(", "),
+            timeRange
+          )
         }}
       >
         <label>
