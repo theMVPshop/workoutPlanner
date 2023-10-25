@@ -74,6 +74,8 @@ input[type="checkbox"] {
   padding: 10px 30px;
   transition: 0.5s;
   letter-spacing: 0.1em;
+  cursor: pointer;
+
 }
 .submit_button span {
   color: black;
@@ -123,3 +125,6 @@ input[type="checkbox"] {
     padding-right: 100%
 }
 
+.generateplan {
+
+}

@@ -4,36 +4,7 @@ import "./PracticeCard01.css";
 import "./preload.css";
 import { images } from "../../constants";
 
-const videoArray = [
-  { name: "Abdominal Crunch", video: "abdominal_crunch.mp4" },
-  { name: "Air Squad Bent Arms", video: "air_squad_bent_arms.mp4" },
-  { name: "Bicycle Crunch", video: "bicycle_crunch.mp4" },
-  { name: "Box Jump", video: "box_jump.mp4" },
-  { name: "Burpee", video: "burpee.mp4" },
-  { name: "Circle Crunch", video: "circle_crunch.mp4" },
-  { name: "Cross Jump", video: "cross_jump.mp4" },
-  { name: "Cross Jump Rotation", video: "cross_jump_rotation.mp4" },
-  { name: "Donkey Kick", video: "donkey_kick.mp4" },
-  { name: "High Knees", video: "high_knees.mp4" },
-  { name: "Idle", video: "idle.mp4" },
-  { name: "Jump Push Ups", video: "jump_push_ups.mp4" },
-  { name: "Jumping Jack", video: "jumping_jack.mp4" },
-  { name: "Lunge", video: "lunge.mp4" },
-  { name: "Lunge Kick", video: "lunge_kick.mp4" },
-  { name: "Mountain Climbers", video: "mountain_climbers.mp4" },
-  { name: "Pike Walk", video: "pike_walk.mp4" },
-  { name: "Plank", video: "plank.mp4" },
-  { name: "Push Up Rotation", video: "push_up_rotation.mp4" },
-  { name: "Push Ups", video: "push_ups.mp4" },
-  { name: "Quick Steps", video: "quick_steps.mp4" },
-  { name: "Russian Twist", video: "russian_twist.mp4" },
-  { name: "Side Plank", video: "side_plank.mp4" },
-  { name: "Squad", video: "squad.mp4" },
-  { name: "Step Up", video: "step_up.mp4" },
-  { name: "Tricep Dips", video: "tricep_dips.mp4" },
-  { name: "Victory", video: "victory.mp4" },
-  { name: "Wall Sit", video: "wall_sit.mp4" },
-];
+import { videoArray } from "../../constants/videoArray";
 
 const nameMatch = (exercise) => {
   for (let i = 0; i < videoArray.length; i++) {
@@ -68,6 +39,7 @@ const PracticeCard = ({ plan, loading, preloadRef, clicked }) => {
         </section>
       ) : (
         <div className="card section__padding">
+
           <div className="card-header">
             <h1 className="users-name">Hello, {plan.name}!</h1>
             <h3 className="workout-breakdown">Your workout plan</h3>
@@ -121,6 +93,7 @@ const PracticeCard = ({ plan, loading, preloadRef, clicked }) => {
                           </div>
                         </li>
 
+
                         // <video
                         //   title="Workout Video"
                         //   width="300"
@@ -139,7 +112,26 @@ const PracticeCard = ({ plan, loading, preloadRef, clicked }) => {
                         // </div>
                       );
                     }
+
                   )}
+                  {/* <button
+                    className="show-more-button"
+                    onClick={() => toggleVideo(index)}
+                  >
+                    {showVideos[index] ? "Show Less" : "Show VIDEO"}
+                  </button> */}
+                  {/* {showVideos[index] && (
+                    <div className="additional-info">
+                      <iframe
+                        title="Workout Video"
+                        width="560"
+                        height="315"
+                        src="https://www.youtube.com/embed/your-video-id"
+                      >
+                        {exercises.video}
+                      </iframe>
+                    </div>
+                  )} */}
                 </ul>
               </div>
             ))}
