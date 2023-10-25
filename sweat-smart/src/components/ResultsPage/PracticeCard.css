@@ -197,6 +197,8 @@ p {
       justify-content: center;
       align-items: center;
       width: 50%; */
+      /* background-color: #15c0f0; */
+      
 
       /* background-color: var(--second-color); */
       
@@ -206,6 +208,9 @@ p {
         /* max-width: none; */
         display: flex;
         flex-direction: column;
+        align-items: center;
+        background-color: rgb(13, 110, 124, 0.15);
+        backdrop-filter: blur(5px);
         
     }
 
@@ -216,10 +221,17 @@ p {
     } */
 
     .image-container {
+        display: flex;
         max-width: fit-content;
-        
+
+       
     }
 
+    
+h2 {
+    margin-bottom: 2rem;
+    color: var(--red)
+}
 
   
      /* .days > div {
@@ -247,7 +259,7 @@ p {
     margin-bottom: 10px;
   }
   .card-header h1 {
-    color: var(--txt-color);
+    color: var(--red);
   }
   .card-header strong {
     font-size: 1.15rem;
