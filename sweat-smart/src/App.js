@@ -7,6 +7,7 @@ import "./App.css";
 import PracticeCard from "./components/ResultsPage/PracticeCard";
 import { prompt } from "./Prompt";
 
+
 function App() {
   const [name, setName] = useState("");
   const [gender, setGender] = useState("");
@@ -39,12 +40,12 @@ function App() {
       days,
       timeRange
     ).then((generatedPlan) => {
-      let string = generatedPlan.replace(/\\"/g, '"').replace(/\\n/g, '\n');
+      let string = generatedPlan.replace(/\\"/g, '"').replace(/\\n/g, "\n");
       const jsonObject = JSON.parse(string);
-      console.log(jsonObject)
+      console.log(jsonObject);
       setPlan(jsonObject);
       setLoading(false);
-      setClicked(false)
+      setClicked(false);
     });
   };
 
@@ -125,7 +126,12 @@ function App() {
         setClicked={setClicked}
       />
 
-      <PracticeCard clicked={clicked} plan={plan} loading={loading} preloadRef={preloadRef} />
+      <PracticeCard
+        clicked={clicked}
+        plan={plan}
+        loading={loading}
+        preloadRef={preloadRef}
+      />
     </div>
   );
 }
