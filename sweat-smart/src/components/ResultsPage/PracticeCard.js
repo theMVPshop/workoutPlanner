@@ -1,19 +1,17 @@
 /* eslint-disable no-undef */
 import React from "react";
-// import results from "./results";
-import "./PracticeCard.css";
+import "./PracticeCard01.css";
 import "./preload.css";
-// import "./PracticeCard01.css"
-import { useState } from "react";
 import { images } from "../../constants";
+
 import { videoArray } from "../../constants/videoArray";
 
 const nameMatch = (exercise) => {
   for (let i = 0; i < videoArray.length; i++) {
     if (videoArray[i].name === exercise) {
       return videoArray[i].video;
-    };
-  };
+    }
+  }
   return false;
 };
 
@@ -32,17 +30,23 @@ const PracticeCard = ({ plan, loading, preloadRef, clicked }) => {
 
   return (
     <>
-      {loading && !clicked ? <div></div> :
-        (loading && clicked ?
-          <section ref={preloadRef} class="sec-loading">
-            <div class="one"></div>
-          </section>
-       : (
-        <div className="card">
+      {loading && !clicked ? (
+        <div></div>
+      ) : loading && clicked ? (
+        <section ref={preloadRef} class="sec-loading">
+          {console.log("Animation")}
+          <div class="one"></div>
+        </section>
+      ) : (
+        <div className="card section__padding">
+
           <div className="card-header">
             <h1 className="users-name">Hello, {plan.name}!</h1>
             <h3 className="workout-breakdown">Your workout plan</h3>
-            <h4 className="routine">{plan.routine}</h4>
+            <h4 className="routine">
+              {" "}
+              <strong>Routine :</strong>&nbsp;&nbsp; {plan.routine}
+            </h4>
             <p>
               <strong>Summary :</strong>&nbsp;&nbsp;
               {plan.summary}
@@ -59,18 +63,18 @@ const PracticeCard = ({ plan, loading, preloadRef, clicked }) => {
           <div className="days-container">
             {plan.exercises.map((exerciseDay, index) => (
               <div className="days" key={index}>
-                <div className="image-container">
-                  <img src={images.LOGO1} alt="logo" />
+                <div className="day__header">
+                  <div className="image-container">
+                    <img src={images.LOGO1} alt="logo" />
+                  </div>
+                  <h2>{Object.keys(exerciseDay)[0]}</h2>
                 </div>
-                <h2>{Object.keys(exerciseDay)[0]}</h2>
-
                 <ul>
                   {exerciseDay[Object.keys(exerciseDay)[0]].map(
                     (exercise, i) => {
-                      let video = nameMatch(exercise.exercise)
-                      console.log(video)
+                      let video = nameMatch(exercise.exercise);
+                      console.log(video);
                       return (
-                      <div>
                         <li className="card-list" key={i}>
                           <strong>Muscle Group:</strong> {exercise.muscleGroup}
                           <br />
@@ -79,20 +83,36 @@ const PracticeCard = ({ plan, loading, preloadRef, clicked }) => {
                           <strong>Sets:</strong> {exercise.sets}
                           <br />
                           <strong>Reps:</strong> {exercise.reps}
+                          <div className="button__cont">
+                            <button
+                              className="show-more-button"
+                              onClick={() => toggleVideo(index)}
+                            >
+                              Show VIDEO{" "}
+                            </button>
+                          </div>
                         </li>
-                        {video && (
-                          <video
-                            title="Workout Video"
-                            width="300"
-                            height="200"
-                            loop
-                            controls
-                          >
-                            <source type="video/mp4" src={`../../assets/video/male/${video}`}/>
-                          </video>
-                        )}
-                      </div>
-                    )}
+
+
+                        // <video
+                        //   title="Workout Video"
+                        //   width="300"
+                        //   height="200"
+                        //   loop
+                        // >
+                        //   <source
+                        //     type="video/mp4"
+                        //     src={
+                        //       video
+                        //         ? `../../assets/video/male/${video}`
+                        //         : `../../assets/video/male/wall_sit.mp4`
+                        //     }
+                        //   />
+                        // </video>
+                        // </div>
+                      );
+                    }
+
                   )}
                   {/* <button
                     className="show-more-button"
@@ -117,7 +137,7 @@ const PracticeCard = ({ plan, loading, preloadRef, clicked }) => {
             ))}
           </div>
         </div>
-      ))}
+      )}
     </>
   );
 };

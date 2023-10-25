@@ -7,6 +7,7 @@ import "./App.css";
 import PracticeCard from "./components/ResultsPage/PracticeCard";
 import { prompt } from "./Prompt";
 
+
 function App() {
   const [name, setName] = useState("");
   const [gender, setGender] = useState("");
@@ -30,6 +31,7 @@ function App() {
   ) => {
     setLoading(true);
     setClicked(true);
+
 
     let jsonObject;
     // Runs the function until a proper response is given
@@ -131,7 +133,12 @@ function App() {
         setClicked={setClicked}
       />
 
-      <PracticeCard clicked={clicked} plan={plan} loading={loading} preloadRef={preloadRef} />
+      <PracticeCard
+        clicked={clicked}
+        plan={plan}
+        loading={loading}
+        preloadRef={preloadRef}
+      />
     </div>
   );
 }
