@@ -19,7 +19,7 @@ function App() {
   const [loading, setLoading] = useState(true);
   const [clicked, setClicked] = useState(false);
 
-  const handleSubmit = (
+  const handleSubmit = async (
     name,
     gender,
     fitnessLevel,
@@ -30,22 +30,28 @@ function App() {
   ) => {
     setLoading(true);
     setClicked(true);
-    prompt(
-      name,
-      gender,
-      fitnessLevel,
-      workoutTypes,
-      muscleGroups,
-      days,
-      timeRange
-    ).then((generatedPlan) => {
+
+    let jsonObject;
+    // Runs the function until a proper response is given
+    do {
+      let generatedPlan = await prompt(
+        name, 
+        gender,
+        fitnessLevel,
+        workoutTypes,
+        muscleGroups,
+        days,
+        timeRange
+      );
+
       let string = generatedPlan.replace(/\\"/g, '"').replace(/\\n/g, '\n');
-      const jsonObject = JSON.parse(string);
-      console.log(jsonObject)
-      setPlan(jsonObject);
-      setLoading(false);
-      setClicked(false)
-    });
+      jsonObject = JSON.parse(string);
+      console.log(jsonObject);
+      
+    } while (!Array.isArray(jsonObject.exercises));
+    setPlan(jsonObject);
+    setLoading(false); 
+    setClicked(false);
   };
 
   const handleDays = (e) => {
