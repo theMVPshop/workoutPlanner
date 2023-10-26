@@ -112,7 +112,7 @@
   justify-content: center;
   align-items: center;
   background-color: var(--color-bg);
-  margin-top: 5rem;
+  /* margin-top: 5rem; */
   cursor: pointer;
 }
 a {
