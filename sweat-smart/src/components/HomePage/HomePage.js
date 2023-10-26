@@ -1,15 +1,9 @@
-
 import React from "react";
-
-
 
 import { images } from "../../constants";
 import "./homepage.css";
 
-
 const HomePage = ({ handleScroll }) => {
-
-
   return (
     <div className="section__padding header" data-aos="fade-down">
       <div className="heading__logo">
@@ -20,6 +14,11 @@ const HomePage = ({ handleScroll }) => {
             where fitness meets intelligence.
           </span>
         </div>
+      </div>
+      <div className="heading__content-button">
+        <a>
+          <span onClick={handleScroll}>Get Started</span>
+        </a>
       </div>
       <div className="heading__content ">
         <div className="heading__content-one">
@@ -49,12 +48,6 @@ const HomePage = ({ handleScroll }) => {
           <div className="heading__content-two_img" data-aos="flip-right">
             <img src={images.clock} />
           </div>
-        </div>
-        <div className="heading__content-button">
-          <a>
-            <span onClick={handleScroll}>Get Started</span>
-          </a>
-
         </div>
       </div>
     </div>
