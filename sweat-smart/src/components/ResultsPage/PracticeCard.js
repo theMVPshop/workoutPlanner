@@ -1,9 +1,8 @@
 /* eslint-disable no-undef */
-import React from "react";
+import React, { useState, useEffect } from "react";
 import "./PracticeCard01.css";
 import "./preload.css";
 import { images } from "../../constants";
-
 import { videoArray } from "../../constants/videoArray";
 
 const nameMatch = (exercise) => {
@@ -16,17 +15,22 @@ const nameMatch = (exercise) => {
 };
 
 const PracticeCard = ({ plan, loading, preloadRef, clicked }) => {
-  // const initialplan = results;
-  // const [plan, setplan] = useState(initialWorkoutData);
-  // const [showVideos, setShowVideos] = useState(
-  //   Array(plan.exercises.length).fill(false)
-  // );
 
-  // const toggleVideo = (index) => {
-  //   const newShowVideos = [...showVideos];
-  //   newShowVideos[index] = !showVideos[index];
-  //   setShowVideos(newShowVideos);
-  // };
+  const [clickedButtons, setClickedButtons] = useState([]);
+
+  useEffect(() => {
+    if (plan.exercises) {
+      setClickedButtons(plan.exercises.map(() => false));
+    }
+  }, [plan]);
+
+  const toggleVideo = (index) => {
+    setClickedButtons(prevButtons => {
+      return prevButtons.map((button, i) => {
+        return i === index ? !button : false; 
+      });
+    });
+  };
 
   return (
     <>
@@ -88,50 +92,16 @@ const PracticeCard = ({ plan, loading, preloadRef, clicked }) => {
                               className="show-more-button"
                               onClick={() => toggleVideo(index)}
                             >
-                              Show VIDEO{" "}
+                              {clickedButtons[index] ? "Hide VIDEO" : "Show VIDEO"}
                             </button>
                           </div>
+                          {clickedButtons[index] && (
+                            <img width="300px" height="200px" src={video} />
+                          )}
                         </li>
-
-
-                        // <video
-                        //   title="Workout Video"
-                        //   width="300"
-                        //   height="200"
-                        //   loop
-                        // >
-                        //   <source
-                        //     type="video/mp4"
-                        //     src={
-                        //       video
-                        //         ? `../../assets/video/male/${video}`
-                        //         : `../../assets/video/male/wall_sit.mp4`
-                        //     }
-                        //   />
-                        // </video>
-                        // </div>
                       );
                     }
-
                   )}
-                  {/* <button
-                    className="show-more-button"
-                    onClick={() => toggleVideo(index)}
-                  >
-                    {showVideos[index] ? "Show Less" : "Show VIDEO"}
-                  </button> */}
-                  {/* {showVideos[index] && (
-                    <div className="additional-info">
-                      <iframe
-                        title="Workout Video"
-                        width="560"
-                        height="315"
-                        src="https://www.youtube.com/embed/your-video-id"
-                      >
-                        {exercises.video}
-                      </iframe>
-                    </div>
-                  )} */}
                 </ul>
               </div>
             ))}
