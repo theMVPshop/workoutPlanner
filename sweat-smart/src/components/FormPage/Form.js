@@ -1,5 +1,5 @@
-import React from "react"
-import "./form.css"
+import React from "react";
+import "./form.css";
 
 function Form(props) {
   const {
@@ -21,42 +21,44 @@ function Form(props) {
     handleSubmit,
     handleScrollPreload,
     setClicked,
-  } = props
+  } = props;
 
   const checkboxValidation = (className) => {
-    let el = document.getElementsByClassName(className)
+    let el = document.getElementsByClassName(className);
 
-    let atLeastOneChecked = false //at least one cb is checked
+    let atLeastOneChecked = false; //at least one cb is checked
     for (let i = 0; i < el.length; i++) {
       if (el[i].checked === true) {
-        atLeastOneChecked = true
+        atLeastOneChecked = true;
       }
     }
 
     if (atLeastOneChecked === true) {
       for (let i = 0; i < el.length; i++) {
-        el[i].required = false
+        el[i].required = false;
       }
     } else {
       for (let i = 0; i < el.length; i++) {
-        el[i].required = true
+        el[i].required = true;
       }
     }
-  }
+  };
 
   return (
     <div className="maindiv">
       <div className="sign">
         <h2 ref={pageRef} className="signup">
           Sign Up!
+          <br />
+          <span>Fill out the form so we can schedule you!</span>
         </h2>
       </div>
       <form
         className="formmain"
         onSubmit={(e) => {
-          e.preventDefault()
-          setClicked(true)
-          setTimeout(handleScrollPreload, 100)
+          e.preventDefault();
+          setClicked(true);
+          setTimeout(handleScrollPreload, 100);
           handleSubmit(
             name,
             gender,
@@ -65,42 +67,47 @@ function Form(props) {
             muscleGroups.join(", "),
             days.join(", "),
             timeRange
-          )
+          );
         }}
       >
-        <label>
-          Full Name
-          <br />
-          <input
-            required
-            type="text"
-            value={name}
-            onChange={(e) => setName(e.target.value)}
-          />
-        </label>
-        <br />
+        <div className="side__cont">
+          <div className="side__box">
+            <label>
+              Full Name
+              {/* <br /> */}
+              <input
+                required
+                type="text"
+                value={name}
+                onChange={(e) => setName(e.target.value)}
+              />
+            </label>
+          </div>
 
-        <label>
-          Gender
-          <br />
-          <select
-            required
-            value={gender}
-            onChange={(e) => setGender(e.target.value)}
-          >
-            <option value="">Select</option>
-            <option value="Male">Male</option>
-            <option value="Female">Female</option>
-            <option value="Female">Non Binary</option>
-          </select>
-        </label>
-        <br />
+          <div className="side__box">
+            <label>
+              Gender
+              <br />
+              <select
+                required
+                value={gender}
+                onChange={(e) => setGender(e.target.value)}
+              >
+                <option value="">Select</option>
+                <option value="Male">Male</option>
+                <option value="Female">Female</option>
+                <option value="Female">Non Binary</option>
+              </select>
+            </label>
+          </div>
+        </div>
 
+      
         <label>
           Days of the Week for Exercise
           <br />
-          <div onChange={handleDays}>
-            <div className="suntues">
+          <div onChange={handleDays} class="weekdays__main">
+            <div className="suntues column">
               <label className="daylabel">
                 Sunday
                 <input
@@ -135,7 +142,7 @@ function Form(props) {
                 />
               </label>
             </div>
-            <div className="wedsat">
+            <div className="wedsat column" >
               <label className="daylabel">
                 Wednesday
                 <input
@@ -184,8 +191,8 @@ function Form(props) {
           </div>
         </label>
 
-        <br />
-
+        <div className="side__cont">
+          <div className="side__box">
         <label>
           <div className="workouts">
             <text>Workouts</text>
@@ -248,8 +255,8 @@ function Form(props) {
             </div>
           </div>
         </label>
-
-        <br />
+</div>
+        <div className="side__box">
 
         <label>
           <text className="musclegroups">Muscle Groups</text>
@@ -321,41 +328,49 @@ function Form(props) {
             </div>
           </div>
         </label>
+        </div>
+        </div>
+          
+          
 
-        <br />
 
-        <label>
-          Time Range
-          <br />
-          <select
-            required
-            value={timeRange}
-            onChange={(e) => setTimeRange(e.target.value)}
-          >
-            <option value="">Select</option>
-            <option value="30 minutes">30 minutes</option>
-            <option value="1 hour">1 hour</option>
-            <option value="45 minutes">45 minutes</option>
-            <option value="1 hour 30 minutes">1 hour 30 minutes</option>
-            <option value="2 hours">2 hours</option>
-          </select>
-        </label>
-        <br />
+        <div className="side__cont">
+          <div className="side__box">
+            <label>
+              Time Range
+              <br />
+              <select
+                required
+                value={timeRange}
+                onChange={(e) => setTimeRange(e.target.value)}
+              >
+                <option value="">Select</option>
+                <option value="30 minutes">30 minutes</option>
+                <option value="1 hour">1 hour</option>
+                <option value="45 minutes">45 minutes</option>
+                <option value="1 hour 30 minutes">1 hour 30 minutes</option>
+                <option value="2 hours">2 hours</option>
+              </select>
+            </label>
+          </div>
+          <div className="side__box">
+            <label>
+              Fitness Level
+              <br />
+              <select
+                required
+                value={fitnessLevel}
+                onChange={(e) => setFitnessLevel(e.target.value)}
+              >
+                <option value="">Select</option>
+                <option value="Beginner">Beginner</option>
+                <option value="Intermediate">Intermediate</option>
+                <option value="Advanced">Advanced</option>
+              </select>
+            </label>
+          </div>
+        </div>
 
-        <label>
-          Fitness Level
-          <br />
-          <select
-            required
-            value={fitnessLevel}
-            onChange={(e) => setFitnessLevel(e.target.value)}
-          >
-            <option value="">Select</option>
-            <option value="Beginner">Beginner</option>
-            <option value="Intermediate">Intermediate</option>
-            <option value="Advanced">Advanced</option>
-          </select>
-        </label>
         <div className="submit_button">
           <button type="submit" className="generateplan">
             <span>Generate Plan</span>
@@ -363,7 +378,7 @@ function Form(props) {
         </div>
       </form>
     </div>
-  )
+  );
 }
 
-export default Form
+export default Form;
