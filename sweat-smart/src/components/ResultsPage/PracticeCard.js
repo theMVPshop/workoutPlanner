@@ -20,17 +20,17 @@ const PracticeCard = ({ plan, loading, preloadRef, clicked }) => {
 
   useEffect(() => {
     if (plan.exercises) {
-      setClickedButtons(plan.exercises.map(() => false));
+      setClickedButtons(Array(plan.exercises.length).fill(false));
     }
-  }, [plan]);
+  }, [plan.exercises]);
 
-  const toggleVideo = (index) => {
-    setClickedButtons(prevButtons => {
-      return prevButtons.map((button, i) => {
-        return i === index ? !button : false; 
-      });
+  const toggleVideo = (i) => {
+    setClickedButtons((prevButtons) => {
+        const updatedButtons = [...prevButtons];
+        updatedButtons[i] = !updatedButtons[i];
+        return updatedButtons;
     });
-  };
+};
 
   return (
     <>
@@ -38,7 +38,6 @@ const PracticeCard = ({ plan, loading, preloadRef, clicked }) => {
         <div></div>
       ) : loading && clicked ? (
         <section ref={preloadRef} class="sec-loading">
-          {console.log("Animation")}
           <div class="one"></div>
         </section>
       ) : (
@@ -65,7 +64,8 @@ const PracticeCard = ({ plan, loading, preloadRef, clicked }) => {
           {/* Accessing the days of the week and exercises */}
           <h3>Exercises:</h3>
           <div className="days-container">
-            {plan.exercises.map((exerciseDay, index) => (
+            {plan.exercises.map((exerciseDay, index) => {
+              return (
               <div className="days" key={index}>
                 <div className="day__header">
                   <div className="image-container">
@@ -77,7 +77,6 @@ const PracticeCard = ({ plan, loading, preloadRef, clicked }) => {
                   {exerciseDay[Object.keys(exerciseDay)[0]].map(
                     (exercise, i) => {
                       let video = nameMatch(exercise.exercise);
-                      console.log(video);
                       return (
                         <li className="card-list" key={i}>
                           <strong>Muscle Group:</strong> {exercise.muscleGroup}
@@ -90,12 +89,12 @@ const PracticeCard = ({ plan, loading, preloadRef, clicked }) => {
                           <div className="button__cont">
                             <button
                               className="show-more-button"
-                              onClick={() => toggleVideo(index)}
+                              onClick={() => toggleVideo(i)}
                             >
-                              {clickedButtons[index] ? "Hide VIDEO" : "Show VIDEO"}
+                              {clickedButtons[i] ? "Hide VIDEO" : "Show VIDEO"}
                             </button>
                           </div>
-                          {clickedButtons[index] && (
+                          {clickedButtons[i] && video && (
                             <img width="300px" height="200px" src={video} />
                           )}
                         </li>
@@ -103,8 +102,8 @@ const PracticeCard = ({ plan, loading, preloadRef, clicked }) => {
                     }
                   )}
                 </ul>
-              </div>
-            ))}
+              </div>)
+            })}
           </div>
         </div>
       )}
