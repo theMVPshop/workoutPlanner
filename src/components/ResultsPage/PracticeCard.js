@@ -16,21 +16,28 @@ const nameMatch = (exercise) => {
 
 const PracticeCard = ({ plan, loading, preloadRef, clicked }) => {
 
-  const [clickedButtons, setClickedButtons] = useState([]);
+  const [clickedButtons, setClickedButtons] = useState({});
 
   useEffect(() => {
+    console.log(plan)
+    console.log("useEffect Running")
     if (plan.exercises) {
-      setClickedButtons(Array(plan.exercises.length).fill(false));
+      console.log("Condition passed")
+      const initialState = {};
+      plan.exercises.forEach((exerciseDay, cardIndex) => {
+        initialState[cardIndex] = Array(exerciseDay[Object.keys(exerciseDay)].length).fill(false);
+      });
+      setClickedButtons(initialState);
     }
   }, [plan.exercises]);
 
-  const toggleVideo = (i) => {
+  const toggleVideo = (cardIndex, buttonIndex) => {
     setClickedButtons((prevButtons) => {
-        const updatedButtons = [...prevButtons];
-        updatedButtons[i] = !updatedButtons[i];
-        return updatedButtons;
+      const updatedButtons = { ...prevButtons };
+      updatedButtons[cardIndex][buttonIndex] = !updatedButtons[cardIndex][buttonIndex];
+      return updatedButtons;
     });
-};
+  };
 
   return (
     <>
@@ -64,9 +71,9 @@ const PracticeCard = ({ plan, loading, preloadRef, clicked }) => {
           {/* Accessing the days of the week and exercises */}
           <h3>Exercises:</h3>
           <div className="days-container">
-            {plan.exercises.map((exerciseDay, index) => {
+            {plan.exercises.map((exerciseDay, cardIndex) => {
               return (
-              <div className="days" key={index}>
+              <div className="days" key={cardIndex}>
                 <div className="day__header">
                   <div className="image-container">
                     <img src={images.LOGO1} alt="logo" />
@@ -75,7 +82,7 @@ const PracticeCard = ({ plan, loading, preloadRef, clicked }) => {
                 </div>
                 <ul>
                   {exerciseDay[Object.keys(exerciseDay)[0]].map(
-                    (exercise, i) => {
+                    (exercise, buttonIndex) => {
                       let video = nameMatch(exercise.exercise);
                       return (
                         <li className="card-list" key={i}>
@@ -89,12 +96,12 @@ const PracticeCard = ({ plan, loading, preloadRef, clicked }) => {
                           <div className="button__cont">
                             <button
                               className="show-more-button"
-                              onClick={() => toggleVideo(i)}
+                              onClick={() => toggleVideo(cardIndex, buttonIndex)}
                             >
-                              {clickedButtons[i] ? "Hide VIDEO" : "Show VIDEO"}
+                              {clickedButtons[cardIndex][buttonIndex] ? "Hide VIDEO" : "Show VIDEO"}
                             </button>
                           </div>
-                          {clickedButtons[i] && video && (
+                          {clickedButtons[cardIndex][buttonIndex] && video && (
                             <img width="300px" height="200px" src={video} />
                           )}
                         </li>
