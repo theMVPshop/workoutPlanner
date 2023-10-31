@@ -95,8 +95,10 @@ const PracticeCard = ({ plan, loading, preloadRef, clicked }) => {
                             </button>
                           </div>
                           {clickedButtons[i] && video && (
-                            <img width="300px" height="200px" src={video} />
-                          )}
+                            <div className="show_img">
+                            <img  width="300px" height="200px" src={video} />
+                          
+                          </div>)}
                         </li>
                       );
                     }
