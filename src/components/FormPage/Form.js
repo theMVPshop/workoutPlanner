@@ -72,42 +72,66 @@ function Form(props) {
       >
         <div className="side__cont">
           <div className="side__box">
-            <label>
-              Full Name
-              {/* <br /> */}
-              <input
-                required
-                type="text"
-                value={name}
-                onChange={(e) => setName(e.target.value)}
-              />
-            </label>
+            <h6>Full Name</h6>
+            <input
+              required
+              type="text"
+              value={name}
+              onChange={(e) => setName(e.target.value)}
+            />
           </div>
 
           <div className="side__box">
-            <label>
-              Gender
-              <br />
-              <select
-                required
-                value={gender}
-                onChange={(e) => setGender(e.target.value)}
-              >
-                <option value="">Select</option>
-                <option value="Male">Male</option>
-                <option value="Female">Female</option>
-                <option value="Female">Non Binary</option>
-              </select>
-            </label>
+            <h6>Gender</h6>
+
+            <select
+              required
+              value={gender}
+              onChange={(e) => setGender(e.target.value)}
+            >
+              <option value="">Select</option>
+              <option value="Male">Male</option>
+              <option value="Female">Female</option>
+              <option value="Female">Non Binary</option>
+            </select>
           </div>
         </div>
 
-      
-        <label>
-          Days of the Week for Exercise
-          <br />
-          <div onChange={handleDays} class="weekdays__main">
-            <div className="suntues column">
+        <div className="side__cont">
+          <div className="side__box">
+            <h6>Time Range</h6>
+            <select
+              required
+              value={timeRange}
+              onChange={(e) => setTimeRange(e.target.value)}
+            >
+              <option value="">Select</option>
+              <option value="30 minutes">30 minutes</option>
+              <option value="1 hour">1 hour</option>
+              <option value="45 minutes">45 minutes</option>
+              <option value="1 hour 30 minutes">1 hour 30 minutes</option>
+              <option value="2 hours">2 hours</option>
+            </select>
+          </div>
+          <div className="side__box">
+            <h6>Fitness Level</h6>
+            <select
+              required
+              value={fitnessLevel}
+              onChange={(e) => setFitnessLevel(e.target.value)}
+            >
+              <option value="">Select</option>
+              <option value="Beginner">Beginner</option>
+              <option value="Intermediate">Intermediate</option>
+              <option value="Advanced">Advanced</option>
+            </select>
+          </div>
+        </div>
+
+        <div className="workouts">
+          <h6>Days of the Week for Exercise</h6>
+          <div onChange={handleDays} class="main__section">
+            <div className="label_box">
               <label className="daylabel">
                 Sunday
                 <input
@@ -119,6 +143,9 @@ function Form(props) {
                   onClick={checkboxValidation("dayInput")}
                 />
               </label>
+            </div>
+
+            <div className="label_box">
               <label className="daylabel">
                 Monday
                 <input
@@ -130,6 +157,9 @@ function Form(props) {
                   onClick={checkboxValidation("dayInput")}
                 />
               </label>
+            </div>
+
+            <div className="label_box">
               <label className="daylabel">
                 Tuesday
                 <input
@@ -142,7 +172,7 @@ function Form(props) {
                 />
               </label>
             </div>
-            <div className="wedsat column" >
+            <div className="label_box">
               <label className="daylabel">
                 Wednesday
                 <input
@@ -154,6 +184,9 @@ function Form(props) {
                   onClick={checkboxValidation("dayInput")}
                 />
               </label>
+            </div>
+
+            <div className="label_box">
               <label className="daylabel">
                 Thursday
                 <input
@@ -165,6 +198,8 @@ function Form(props) {
                   onClick={checkboxValidation("dayInput")}
                 />
               </label>
+            </div>
+            <div className="label_box">
               <label className="daylabel">
                 Friday
                 <input
@@ -176,6 +211,9 @@ function Form(props) {
                   onClick={checkboxValidation("dayInput")}
                 />
               </label>
+            </div>
+
+            <div className="label_box">
               <label className="daylabel">
                 Saturday
                 <input
@@ -189,80 +227,80 @@ function Form(props) {
               </label>
             </div>
           </div>
-        </label>
+        </div>
 
-        <div className="side__cont">
-          <div className="side__box">
-        <label>
-          <div className="workouts">
-            <text>Workouts</text>
-            <br />
-            <div onChange={handleWorkoutTypes}>
-              <div className="yogahiit">
-                <label className="daylabel">
-                  Yoga
-                  <input
-                    required
-                    onClick={checkboxValidation("workoutInput")}
-                    className="workoutInput"
-                    type="checkbox"
-                    value="yoga"
-                  />
-                </label>
-                <label className="daylabel">
-                  HIIT
-                  <input
-                    required
-                    onClick={checkboxValidation("workoutInput")}
-                    className="workoutInput"
-                    type="checkbox"
-                    value="hitt"
-                  />
-                </label>
-              </div>
-              <div className="cardiost">
-                <label className="daylabel">
-                  Cardio
-                  <input
-                    required
-                    onClick={checkboxValidation("workoutInput")}
-                    className="workoutInput"
-                    type="checkbox"
-                    value="cardio"
-                  />
-                </label>
-                <label className="daylabel">
-                  Weight Loss
-                  <input
-                    required
-                    onClick={checkboxValidation("workoutInput")}
-                    className="workoutInput"
-                    type="checkbox"
-                    value="weightloss"
-                  />
-                </label>
-                <label className="daylabel">
-                  Strength Training
-                  <input
-                    required
-                    onClick={checkboxValidation("workoutInput")}
-                    className="workoutInput"
-                    type="checkbox"
-                    value="strength"
-                  />
-                </label>
-              </div>
+        <div className="workouts">
+          <h6>Workouts</h6>
+          <div className="main__section" onChange={handleWorkoutTypes}>
+            <div className="label_box">
+              <label className="daylabel">
+                Yoga
+                <input
+                  required
+                  onClick={checkboxValidation("workoutInput")}
+                  className="workoutInput"
+                  type="checkbox"
+                  value="yoga"
+                />
+              </label>
+            </div>
+            <div className="label_box">
+              <label className="daylabel">
+                HIIT
+                <input
+                  required
+                  onClick={checkboxValidation("workoutInput")}
+                  className="workoutInput"
+                  type="checkbox"
+                  value="hitt"
+                />
+              </label>
+            </div>
+            <div className="label_box">
+              <label className="daylabel">
+                Cardio
+                <input
+                  required
+                  onClick={checkboxValidation("workoutInput")}
+                  className="workoutInput"
+                  type="checkbox"
+                  value="cardio"
+                />
+              </label>
+            </div>
+
+            <div className="label_box">
+              <label className="daylabel">
+                Weight Loss
+                <input
+                  required
+                  onClick={checkboxValidation("workoutInput")}
+                  className="workoutInput"
+                  type="checkbox"
+                  value="weightloss"
+                />
+              </label>
+            </div>
+
+            <div className="label_box">
+              <label className="daylabel">
+                Strength
+                <input
+                  required
+                  onClick={checkboxValidation("workoutInput")}
+                  className="workoutInput"
+                  type="checkbox"
+                  value="strength"
+                />
+              </label>
             </div>
           </div>
-        </label>
-</div>
-        <div className="side__box">
+        </div>
 
-        <label>
-          <text className="musclegroups">Muscle Groups</text>
-          <br />
-          <div onChange={handleMuscleGroups}>
-            <div className="chestarms">
+        <div className="workouts">
+          <h6>Muscle Groups</h6>
+          <div className="main__section" onChange={handleMuscleGroups}>
+            <div className="label_box">
               <label className="daylabel">
                 Chest
                 <input
@@ -273,6 +311,9 @@ function Form(props) {
                   value="Chest"
                 />
               </label>
+            </div>
+
+            <div className="label_box">
               <label className="daylabel">
                 Back
                 <input
@@ -283,6 +324,9 @@ function Form(props) {
                   value="Back"
                 />
               </label>
+            </div>
+
+            <div className="label_box">
               <label className="daylabel">
                 Arms
                 <input
@@ -294,7 +338,8 @@ function Form(props) {
                 />
               </label>
             </div>
-            <div className="shoulders">
+
+            <div className="label_box">
               <label className="daylabel">
                 Shoulders
                 <input
@@ -305,6 +350,9 @@ function Form(props) {
                   value="Shoulders"
                 />
               </label>
+            </div>
+
+            <div className="label_box">
               <label className="daylabel">
                 Legs
                 <input
@@ -315,6 +363,8 @@ function Form(props) {
                   value="Legs"
                 />
               </label>
+            </div>
+            <div className="label_box">
               <label className="daylabel">
                 Calves
                 <input
@@ -327,48 +377,7 @@ function Form(props) {
               </label>
             </div>
           </div>
-        </label>
-        </div>
-        </div>
-          
-          
-
-
-        <div className="side__cont">
-          <div className="side__box">
-            <label>
-              Time Range
-              <br />
-              <select
-                required
-                value={timeRange}
-                onChange={(e) => setTimeRange(e.target.value)}
-              >
-                <option value="">Select</option>
-                <option value="30 minutes">30 minutes</option>
-                <option value="1 hour">1 hour</option>
-                <option value="45 minutes">45 minutes</option>
-                <option value="1 hour 30 minutes">1 hour 30 minutes</option>
-                <option value="2 hours">2 hours</option>
-              </select>
-            </label>
-          </div>
-          <div className="side__box">
-            <label>
-              Fitness Level
-              <br />
-              <select
-                required
-                value={fitnessLevel}
-                onChange={(e) => setFitnessLevel(e.target.value)}
-              >
-                <option value="">Select</option>
-                <option value="Beginner">Beginner</option>
-                <option value="Intermediate">Intermediate</option>
-                <option value="Advanced">Advanced</option>
-              </select>
-            </label>
-          </div>
+          {/* </label> */}
         </div>
 
         <div className="submit_button">
