@@ -14,9 +14,19 @@ const nameMatch = (exercise) => {
   return false;
 };
 
+const initialState = {
+  0: Array(4).fill(false),
+  1: Array(4).fill(false),
+  2: Array(4).fill(false),
+  3: Array(4).fill(false),
+  4: Array(4).fill(false),
+  5: Array(4).fill(false),
+  6: Array(4).fill(false),
+};
+
 const PracticeCard = ({ plan, loading, preloadRef, clicked }) => {
 
-  const [clickedButtons, setClickedButtons] = useState({});
+  const [clickedButtons, setClickedButtons] = useState(initialState);
 
   useEffect(() => {
     console.log(plan)
@@ -33,11 +43,20 @@ const PracticeCard = ({ plan, loading, preloadRef, clicked }) => {
 
   const toggleVideo = (cardIndex, buttonIndex) => {
     setClickedButtons((prevButtons) => {
-      const updatedButtons = { ...prevButtons };
+      const updatedButtons = {
+        ...prevButtons,
+        [cardIndex]: [...prevButtons[cardIndex]], // Shallow copy of the specific day's array
+      };
+  
+      // Deep copy the specific day's array to avoid mutations
+      updatedButtons[cardIndex] = [...prevButtons[cardIndex]];
+  
+      // Toggle the specific button's value
       updatedButtons[cardIndex][buttonIndex] = !updatedButtons[cardIndex][buttonIndex];
+  
       return updatedButtons;
     });
-  };
+  };  
 
   return (
     <>
@@ -85,7 +104,7 @@ const PracticeCard = ({ plan, loading, preloadRef, clicked }) => {
                     (exercise, buttonIndex) => {
                       let video = nameMatch(exercise.exercise);
                       return (
-                        <li className="card-list" key={i}>
+                        <li className="card-list" key={buttonIndex}>
                           <strong>Muscle Group:</strong> {exercise.muscleGroup}
                           <br />
                           <strong>Exercise:</strong> {exercise.exercise}
@@ -94,12 +113,12 @@ const PracticeCard = ({ plan, loading, preloadRef, clicked }) => {
                           <br />
                           <strong>Reps:</strong> {exercise.reps}
                           <div className="button__cont">
-                            <button
+                            {video && <button
                               className="show-more-button"
-                              onClick={() => toggleVideo(cardIndex, buttonIndex)}
+                              onClick={() => {console.log("click");toggleVideo(cardIndex, buttonIndex);}}
                             >
                               {clickedButtons[cardIndex][buttonIndex] ? "Hide VIDEO" : "Show VIDEO"}
-                            </button>
+                            </button>}
                           </div>
                           {clickedButtons[cardIndex][buttonIndex] && video && (
                             <img width="300px" height="200px" src={video} />
