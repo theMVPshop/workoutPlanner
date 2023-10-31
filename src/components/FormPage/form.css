@@ -27,22 +27,21 @@
   flex: 1;
   display: flex;
   flex-direction: column;
-  align-items: center;
 
   background-color: var(--form-bg);
   border-radius: 0 25px 25px 0;
   border-left: 1rem solid var(--second-color);
   margin: 2rem 0;
-  padding: 3rem 0;
+  padding: 3rem 6rem;
   box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
 }
 label {
-  margin-top: 1.5rem;
+  margin-top: 1rem;
   font-size: 1.5rem;
 }
 .side__cont {
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   width: 100%;
 }
 .side__box {
@@ -58,7 +57,7 @@ option,
 button,
 input {
   color: black;
-  font-size: 0.8em;
+  font-size: 0.5em;
 }
 
 .weekdays__main {
@@ -72,76 +71,14 @@ input {
   display: flex;
   justify-content: start;
   width: 100%;
-  /* margin-bottom: 10px; */
 }
 
-.column label{
+.column label {
   display: flex;
   width: 160px;
   font-size: 0.6em;
   align-items: center;
-margin-top: .5rem;
-}
-
-.column input[type="checkbox"] {
-  margin-left: 10px;
-}
-
-johns-branch input[type="checkbox"] {
-  margin-left: 10px;
-}
-
-input[type="checkbox"] {
-  margin-left: 10px;
-}
-
-/* .suntues {
-  display: flex;
-  align-items: center;
-  padding-right: 80%;
-} */
-
-/* .wedsat {
-  display: flex;
-  align-items: center;
-  padding-right: 100%;
-} */
-
-/* Submit Button */
-.submit_button {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-top: 5rem;
-  cursor: pointer;
-}
-.submit_button button {
-  position: relative;
-  background: var(--lightgreen);
-  border: none;
-  border-radius: 50px;
-  text-decoration: none;
-  padding: 10px 30px;
-  transition: 0.5s;
-  letter-spacing: 0.1em;
-  cursor: pointer;
-}
-.submit_button span {
-  color: black;
-  font-size: 1em;
-  font-weight: bolder;
-}
-.submit_button button:hover {
-  letter-spacing: 0.25em;
-  background-color: var(--color-bg);
-  box-shadow: 0 0 30px var(--second-color);
-}
-.submit_button span:hover {
-  color: white;
-}
-
-.workouts {
-  padding-left: 25%;
+  margin-top: 0.5rem;
 }
 
 .yogahiit {
@@ -174,5 +111,88 @@ input[type="checkbox"] {
   padding-right: 100%;
 }
 
-.generateplan {
+/* Workout section */
+
+h6 {
+  margin-top: 2rem;
+  color: var(--red-orange);
+}
+.main__section {
+  display: flex;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+}
+.label_box {
+  width: 180px;
+}
+.label_box label {
+  font-size: 1rem;
+  display: flex;
+  justify-content: space-between;
+  margin-right: 3rem;
+}
+
+/* Submit Button */
+.submit_button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 5rem 0;
+  cursor: pointer;
+}
+.submit_button button {
+  position: relative;
+  background: var(--lightgreen);
+  border: none;
+  border-radius: 50px;
+  text-decoration: none;
+  padding: 10px 30px;
+  transition: 0.5s;
+  letter-spacing: 0.1em;
+  cursor: pointer;
+}
+.submit_button span {
+  color: black;
+  font-size: 1em;
+  font-weight: bolder;
+}
+.submit_button button:hover {
+  letter-spacing: 0.25em;
+  background-color: var(--color-bg);
+  box-shadow: 0 0 30px var(--second-color);
+}
+.submit_button span:hover {
+  color: white;
+}
+
+@media screen and (max-width: 600px) {
+  .signup {
+    font-size: 2rem;
+  }
+  .signup span {
+    font-size: 1rem;
+  }
+  .formmain {
+    padding: 2rem 2.5rem;
+  }
+  .side__cont {
+    display: flex;
+    flex-direction: column;
+  }
+  .side__box {
+    width: 100%;
+  }
+  .side__box h6,
+  .workouts h6 {
+    font-size: 1rem;
+  }
+  .label_box {
+    width: 200px;
+  }
+  .label_box label {
+    font-size: 14px;
+  }
+  .submit_button {
+    margin: 2rem 0;
+  }
 }
