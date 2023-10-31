@@ -15,7 +15,6 @@ const nameMatch = (exercise) => {
 };
 
 const PracticeCard = ({ plan, loading, preloadRef, clicked }) => {
-
   const [clickedButtons, setClickedButtons] = useState([]);
 
   useEffect(() => {
@@ -26,11 +25,11 @@ const PracticeCard = ({ plan, loading, preloadRef, clicked }) => {
 
   const toggleVideo = (i) => {
     setClickedButtons((prevButtons) => {
-        const updatedButtons = [...prevButtons];
-        updatedButtons[i] = !updatedButtons[i];
-        return updatedButtons;
+      const updatedButtons = [...prevButtons];
+      updatedButtons[i] = !updatedButtons[i];
+      return updatedButtons;
     });
-};
+  };
 
   return (
     <>
@@ -42,7 +41,6 @@ const PracticeCard = ({ plan, loading, preloadRef, clicked }) => {
         </section>
       ) : (
         <div className="card section__padding">
-
           <div className="card-header">
             <h1 className="users-name">Hello, {plan.name}!</h1>
             <h3 className="workout-breakdown">Your workout plan</h3>
@@ -66,43 +64,49 @@ const PracticeCard = ({ plan, loading, preloadRef, clicked }) => {
           <div className="days-container">
             {plan.exercises.map((exerciseDay, index) => {
               return (
-              <div className="days" key={index}>
-                <div className="day__header">
-                  <div className="image-container">
-                    <img src={images.LOGO1} alt="logo" />
+                <div className="days" key={index}>
+                  <div className="day__header">
+                    <div className="image-container">
+                      <img src={images.LOGO1} alt="logo" />
+                    </div>
+                    <h2>{Object.keys(exerciseDay)[0]}</h2>
                   </div>
-                  <h2>{Object.keys(exerciseDay)[0]}</h2>
+                  <ul>
+                    {exerciseDay[Object.keys(exerciseDay)[0]].map(
+                      (exercise, i) => {
+                        let video = nameMatch(exercise.exercise);
+                        return (
+                          <li className="card-list" key={i}>
+                            <strong>Muscle Group:</strong>{" "}
+                            {exercise.muscleGroup}
+                            <br />
+                            <strong>Exercise:</strong> {exercise.exercise}
+                            <br />
+                            <strong>Sets:</strong> {exercise.sets}
+                            <br />
+                            <strong>Reps:</strong> {exercise.reps}
+                            <div className="button__cont">
+                              <button
+                                className="show-more-button"
+                                onClick={() => toggleVideo(i)}
+                              >
+                                {clickedButtons[i]
+                                  ? "Hide VIDEO"
+                                  : "Show VIDEO"}
+                              </button>
+                            </div>
+                            {clickedButtons[i] && video && (
+                              <div className="show__img">
+                                <img width="300px" height="200px" src={video} />
+                              </div>
+                            )}
+                          </li>
+                        );
+                      }
+                    )}
+                  </ul>
                 </div>
-                <ul>
-                  {exerciseDay[Object.keys(exerciseDay)[0]].map(
-                    (exercise, i) => {
-                      let video = nameMatch(exercise.exercise);
-                      return (
-                        <li className="card-list" key={i}>
-                          <strong>Muscle Group:</strong> {exercise.muscleGroup}
-                          <br />
-                          <strong>Exercise:</strong> {exercise.exercise}
-                          <br />
-                          <strong>Sets:</strong> {exercise.sets}
-                          <br />
-                          <strong>Reps:</strong> {exercise.reps}
-                          <div className="button__cont">
-                            <button
-                              className="show-more-button"
-                              onClick={() => toggleVideo(i)}
-                            >
-                              {clickedButtons[i] ? "Hide VIDEO" : "Show VIDEO"}
-                            </button>
-                          </div>
-                          {clickedButtons[i] && video && (
-                            <img width="300px" height="200px" src={video} />
-                          )}
-                        </li>
-                      );
-                    }
-                  )}
-                </ul>
-              </div>)
+              );
             })}
           </div>
         </div>
