@@ -14,22 +14,49 @@ const nameMatch = (exercise) => {
   return false;
 };
 
+const initialState = {
+  0: Array(4).fill(false),
+  1: Array(4).fill(false),
+  2: Array(4).fill(false),
+  3: Array(4).fill(false),
+  4: Array(4).fill(false),
+  5: Array(4).fill(false),
+  6: Array(4).fill(false),
+};
+
 const PracticeCard = ({ plan, loading, preloadRef, clicked }) => {
-  const [clickedButtons, setClickedButtons] = useState([]);
+
+  const [clickedButtons, setClickedButtons] = useState(initialState);
 
   useEffect(() => {
+    console.log(plan)
+    console.log("useEffect Running")
     if (plan.exercises) {
-      setClickedButtons(Array(plan.exercises.length).fill(false));
+      console.log("Condition passed")
+      const initialState = {};
+      plan.exercises.forEach((exerciseDay, cardIndex) => {
+        initialState[cardIndex] = Array(exerciseDay[Object.keys(exerciseDay)].length).fill(false);
+      });
+      setClickedButtons(initialState);
     }
   }, [plan.exercises]);
 
-  const toggleVideo = (i) => {
+  const toggleVideo = (cardIndex, buttonIndex) => {
     setClickedButtons((prevButtons) => {
-      const updatedButtons = [...prevButtons];
-      updatedButtons[i] = !updatedButtons[i];
+      const updatedButtons = {
+        ...prevButtons,
+        [cardIndex]: [...prevButtons[cardIndex]], // Shallow copy of the specific day's array
+      };
+  
+      // Deep copy the specific day's array to avoid mutations
+      updatedButtons[cardIndex] = [...prevButtons[cardIndex]];
+  
+      // Toggle the specific button's value
+      updatedButtons[cardIndex][buttonIndex] = !updatedButtons[cardIndex][buttonIndex];
+  
       return updatedButtons;
     });
-  };
+  };  
 
   return (
     <>
@@ -62,51 +89,44 @@ const PracticeCard = ({ plan, loading, preloadRef, clicked }) => {
           {/* Accessing the days of the week and exercises */}
           <h3>Exercises:</h3>
           <div className="days-container">
-            {plan.exercises.map((exerciseDay, index) => {
+            {plan.exercises.map((exerciseDay, cardIndex) => {
               return (
-                <div className="days" key={index}>
-                  <div className="day__header">
-                    <div className="image-container">
-                      <img src={images.LOGO1} alt="logo" />
-                    </div>
-                    <h2>{Object.keys(exerciseDay)[0]}</h2>
+              <div className="days" key={cardIndex}>
+                <div className="day__header">
+                  <div className="image-container">
+                    <img src={images.LOGO1} alt="logo" />
                   </div>
-                  <ul>
-                    {exerciseDay[Object.keys(exerciseDay)[0]].map(
-                      (exercise, i) => {
-                        let video = nameMatch(exercise.exercise);
-                        return (
-                          <li className="card-list" key={i}>
-                            <strong>Muscle Group:</strong>{" "}
-                            {exercise.muscleGroup}
-                            <br />
-                            <strong>Exercise:</strong> {exercise.exercise}
-                            <br />
-                            <strong>Sets:</strong> {exercise.sets}
-                            <br />
-                            <strong>Reps:</strong> {exercise.reps}
-                            <div className="button__cont">
-                              <button
-                                className="show-more-button"
-                                onClick={() => toggleVideo(i)}
-                              >
-                                {clickedButtons[i]
-                                  ? "Hide VIDEO"
-                                  : "Show VIDEO"}
-                              </button>
-                            </div>
-                            {clickedButtons[i] && video && (
-                              <div className="show__img">
-                                <img width="300px" height="200px" src={video} />
-                              </div>
-                            )}
-                          </li>
-                        );
-                      }
-                    )}
-                  </ul>
                 </div>
-              );
+                <ul>
+                  {exerciseDay[Object.keys(exerciseDay)[0]].map(
+                    (exercise, buttonIndex) => {
+                      let video = nameMatch(exercise.exercise);
+                      return (
+                        <li className="card-list" key={buttonIndex}>
+                          <strong>Muscle Group:</strong> {exercise.muscleGroup}
+                          <br />
+                          <strong>Exercise:</strong> {exercise.exercise}
+                          <br />
+                          <strong>Sets:</strong> {exercise.sets}
+                          <br />
+                          <strong>Reps:</strong> {exercise.reps}
+                          <div className="button__cont">
+                            {video && <button
+                              className="show-more-button"
+                              onClick={() => {console.log("click");toggleVideo(cardIndex, buttonIndex);}}
+                            >
+                              {clickedButtons[cardIndex][buttonIndex] ? "Hide VIDEO" : "Show VIDEO"}
+                            </button>}
+                          </div>
+                          {clickedButtons[cardIndex][buttonIndex] && video && (
+                            <img width="300px" height="200px" src={video} />
+                          )}
+                        </li>
+                      );
+                    }
+                  )}
+                </ul>
+              </div>)
             })}
           </div>
         </div>

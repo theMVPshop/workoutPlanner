@@ -57,7 +57,7 @@ option,
 button,
 input {
   color: black;
-  font-size: 0.5em;
+  font-size: 1rem;
 }
 
 .weekdays__main {
